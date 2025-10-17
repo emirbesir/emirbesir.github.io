@@ -35,7 +35,7 @@
             --dark: #1D1616;
             --darker: #0a0606;
             --light: #EEEEEE;
-            --gray: #a89b9b;
+            --gray: #c4b8b8;
         }
 
         body {
@@ -51,11 +51,13 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(29, 22, 22, 0.95);
-            backdrop-filter: blur(10px);
+            background: rgba(29, 22, 22, 0.8);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
             padding: 1rem 2rem;
             z-index: 1000;
-            box-shadow: 0 2px 20px rgba(216, 64, 64, 0.2);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid rgba(216, 64, 64, 0.2);
         }
 
         nav ul {
@@ -197,19 +199,23 @@
         }
 
         .contact-card {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             padding: 1.5rem 2rem;
             border-radius: 10px;
             border: 1px solid rgba(216, 64, 64, 0.3);
-            transition: all 0.3s;
+            transition: all 0.3s ease;
             text-align: center;
             min-width: 200px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
         .contact-card:hover {
             transform: translateY(-5px);
             border-color: var(--primary);
-            box-shadow: 0 10px 30px rgba(216, 64, 64, 0.3);
+            box-shadow: 0 12px 35px rgba(216, 64, 64, 0.4);
+            background: rgba(255, 255, 255, 0.08);
         }
 
         .contact-card h3 {
@@ -238,20 +244,41 @@
         }
 
         .project-card {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border-radius: 15px;
             overflow: hidden;
-            border: 1px solid rgba(216, 64, 64, 0.2);
-            transition: all 0.3s;
+            border: 1px solid rgba(216, 64, 64, 0.3);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
             width: 100%;
             max-width: 450px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
 
         .project-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-12px) scale(1.02);
             border-color: var(--primary);
-            box-shadow: 0 15px 40px rgba(216, 64, 64, 0.4);
+            box-shadow: 0 20px 60px rgba(216, 64, 64, 0.5),
+                        0 0 40px rgba(216, 64, 64, 0.2);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
         }
 
         .project-image {
@@ -267,6 +294,17 @@
             overflow: hidden;
         }
 
+        .project-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(29, 22, 22, 0.3) 100%);
+            pointer-events: none;
+        }
+
         .project-image img {
             width: 100%;
             height: 100%;
@@ -274,6 +312,11 @@
             position: absolute;
             top: 0;
             left: 0;
+            transition: transform 0.4s ease;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.1);
         }
 
         .project-badge {
@@ -573,14 +616,37 @@
             color: white;
             text-decoration: none;
             border-radius: 25px;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
             font-weight: 600;
             margin: 0.5rem;
+            box-shadow: 0 4px 15px rgba(216, 64, 64, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
         }
 
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(216, 64, 64, 0.5);
+            box-shadow: 0 12px 30px rgba(216, 64, 64, 0.6);
+        }
+
+        .btn:active {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(216, 64, 64, 0.5);
         }
 
         /* Footer */
@@ -781,6 +847,45 @@
             .project-image {
                 height: 180px;
             }
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+            box-shadow: 0 4px 20px rgba(216, 64, 64, 0.4);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(216, 64, 64, 0.6);
+        }
+
+        .back-to-top:active {
+            transform: translateY(-2px);
         }
 
         /* Smooth Scrolling */
@@ -1148,6 +1253,11 @@
         <p>&copy; 2025 Emir Beşir</p>
     </footer>
 
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Başa dön">
+        ↑
+    </button>
+
     <script>
         // Filter functionality - Define these variables at the top level
         let activeCategory = 'all';
@@ -1345,6 +1455,24 @@
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'all 0.6s ease-out';
             observer.observe(el);
+        });
+
+        // Back to Top Button functionality
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
     </script>
 
