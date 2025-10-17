@@ -404,6 +404,90 @@ function initializeMobileMenu() {
 }
 
 // ========================================
+// Theme Switcher
+// ========================================
+
+/**
+ * Initializes theme switcher functionality
+ */
+function initializeThemeSwitcher() {
+    const themeToggle = document.getElementById('themeToggle');
+    const themeDropdown = document.getElementById('themeDropdown');
+    const themeOptions = document.querySelectorAll('.theme-option');
+    
+    // Load saved theme from localStorage (with fallback for old theme names)
+    let savedTheme = localStorage.getItem('portfolio-theme') || 'dark';
+    // Handle legacy theme names (red, blue, green -> dark)
+    if (['red', 'blue', 'green'].includes(savedTheme)) {
+        savedTheme = 'dark';
+    }
+    applyTheme(savedTheme);
+    
+    // Toggle dropdown
+    themeToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isExpanded = themeDropdown.classList.toggle('show');
+        themeToggle.setAttribute('aria-expanded', isExpanded);
+    });
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!document.getElementById('themeSwitcher').contains(e.target)) {
+            themeDropdown.classList.remove('show');
+            themeToggle.setAttribute('aria-expanded', 'false');
+        }
+    });
+    
+    // Theme selection
+    themeOptions.forEach(option => {
+        option.addEventListener('click', () => {
+            const theme = option.getAttribute('data-theme');
+            applyTheme(theme);
+            
+            // Update active state
+            themeOptions.forEach(opt => opt.classList.remove('active'));
+            option.classList.add('active');
+            
+            // Close dropdown
+            themeDropdown.classList.remove('show');
+            themeToggle.setAttribute('aria-expanded', 'false');
+            
+            // Save to localStorage
+            localStorage.setItem('portfolio-theme', theme);
+        });
+        
+        // Keyboard navigation
+        option.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                option.click();
+            }
+        });
+    });
+}
+
+/**
+ * Applies the selected theme
+ * @param {string} theme - Theme name (dark, light)
+ */
+function applyTheme(theme) {
+    if (theme === 'dark') {
+        document.documentElement.removeAttribute('data-theme');
+    } else {
+        document.documentElement.setAttribute('data-theme', theme);
+    }
+    
+    // Update active state in dropdown
+    document.querySelectorAll('.theme-option').forEach(option => {
+        if (option.getAttribute('data-theme') === theme) {
+            option.classList.add('active');
+        } else {
+            option.classList.remove('active');
+        }
+    });
+}
+
+// ========================================
 // Filter Counter Badge
 // ========================================
 
@@ -480,6 +564,7 @@ function clearAllFilters() {
  * Initialize all functionality when DOM is ready
  */
 document.addEventListener('DOMContentLoaded', () => {
+    initializeThemeSwitcher();
     createTechDropdown();
     initializeDropdown();
     initializeCategoryFilters();
