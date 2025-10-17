@@ -94,6 +94,13 @@
             color: var(--primary);
         }
 
+        nav a:focus {
+            outline: 2px solid var(--primary);
+            outline-offset: 4px;
+            border-radius: 2px;
+            color: var(--primary);
+        }
+
         /* Hero Section */
         .hero {
             min-height: 100vh;
@@ -234,6 +241,12 @@
             color: var(--primary);
         }
 
+        .contact-card a:focus {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+            border-radius: 2px;
+        }
+
         /* Projects Grid */
         .projects-grid {
             display: grid;
@@ -329,6 +342,7 @@
             border-radius: 20px;
             font-size: 0.8rem;
             font-weight: bold;
+            z-index: 2;
         }
 
         .project-badge.course {
@@ -398,6 +412,11 @@
             box-shadow: 0 5px 20px rgba(216, 64, 64, 0.4);
         }
 
+        .filter-btn:focus {
+            outline: 2px solid var(--primary);
+            outline-offset: 3px;
+        }
+
         .tech-filter-btn {
             padding: 0.5rem 1.2rem;
             font-size: 0.85rem;
@@ -436,6 +455,11 @@
         .tech-dropdown-toggle.active {
             border-color: var(--primary);
             background: rgba(216, 64, 64, 0.15);
+        }
+
+        .tech-dropdown-toggle:focus {
+            outline: 2px solid var(--primary);
+            outline-offset: 3px;
         }
 
         .dropdown-arrow {
@@ -570,7 +594,13 @@
         }
 
         .project-platform a:visited {
-            color: var(--secondary);
+            color: #B83030;
+        }
+
+        .project-platform a:focus {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+            border-radius: 2px;
         }
 
         .project-content p {
@@ -647,6 +677,11 @@
         .btn:active {
             transform: translateY(-1px);
             box-shadow: 0 6px 20px rgba(216, 64, 64, 0.5);
+        }
+
+        .btn:focus {
+            outline: 3px solid var(--light);
+            outline-offset: 3px;
         }
 
         /* Footer */
@@ -757,6 +792,11 @@
 
             .hero {
                 padding: 1rem;
+            }
+
+            .hero::before {
+                animation: none;
+                opacity: 0.7;
             }
 
             nav ul {
@@ -886,6 +926,40 @@
 
         .back-to-top:active {
             transform: translateY(-2px);
+        }
+
+        .back-to-top:focus {
+            outline: 3px solid var(--light);
+            outline-offset: 3px;
+        }
+
+        @media (max-width: 480px) {
+            .back-to-top {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+        /* Reduced Motion Support */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            html {
+                scroll-behavior: auto;
+            }
+
+            .hero::before {
+                animation: none;
+            }
         }
 
         /* Smooth Scrolling */
