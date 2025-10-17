@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emir Beşir - Unity Oyun Geliştiricisi</title>
+
+    <!-- SEO & Social Sharing Meta Tags -->
+    <meta name="description"
+        content="Emir Beşir'in Unity oyun geliştirme portfolyosu. Yayınlanmış oyunlar, prototipler ve daha fazlasını keşfedin.">
+    <meta name="author" content="Emir Beşir">
+    <meta name="keywords" content="Unity, Oyun Geliştirici, Game Developer, C#, Portfolio, Emir Beşir">
+
+    <!-- Open Graph Tags for Social Media -->
+    <meta property="og:title" content="Emir Beşir - Unity Oyun Geliştiricisi">
+    <meta property="og:description"
+        content="Emir Beşir'in Unity oyun geliştirme portfolyosu. Yayınlanmış oyunlar, prototipler ve daha fazlasını keşfedin.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://emirbesir.github.io">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="logo.svg">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #D84040;
+            --secondary: #8E1616;
+            --dark: #1D1616;
+            --darker: #0a0606;
+            --light: #EEEEEE;
+            --gray: #a89b9b;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(29, 22, 22, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(216, 64, 64, 0.2);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(216, 64, 64, 0.15) 0%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+
+            50% {
+                transform: translate(-50%, -50%) scale(1.1);
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        /* Contact Section */
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem 2rem;
+            border-radius: 10px;
+            border: 1px solid rgba(216, 64, 64, 0.3);
+            transition: all 0.3s;
+            text-align: center;
+            min-width: 200px;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(216, 64, 64, 0.3);
+        }
+
+        .contact-card h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .contact-card a {
+            color: var(--light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-card a:hover {
+            color: var(--primary);
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+            justify-items: center;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(216, 64, 64, 0.2);
+            transition: all 0.3s;
+            position: relative;
+            width: 100%;
+            max-width: 450px;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 15px 40px rgba(216, 64, 64, 0.4);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: rgba(255, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .project-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--primary);
+            color: var(--dark);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .project-badge.course {
+            background: #D85040;
+        }
+
+        .project-badge.gamejam {
+            background: #B83030;
+        }
+
+        .project-badge.clone {
+            background: #9E2020;
+        }
+
+        .project-badge.prototype {
+            background: var(--secondary);
+        }
+
+        /* Filter Section */
+        .filter-section {
+            margin: 2rem 0;
+        }
+
+        .filter-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .filter-label {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            display: block;
+            text-align: center;
+        }
+
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.6rem 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--light);
+            border: 2px solid rgba(216, 64, 64, 0.3);
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--primary);
+            background: rgba(216, 64, 64, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .filter-btn.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: var(--dark);
+            box-shadow: 0 5px 20px rgba(216, 64, 64, 0.4);
+        }
+
+        .tech-filter-btn {
+            padding: 0.5rem 1.2rem;
+            font-size: 0.85rem;
+        }
+
+        /* Technology Dropdown */
+        .tech-dropdown-container {
+            position: relative;
+            display: inline-block;
+            min-width: 600px;
+        }
+
+        .tech-dropdown-toggle {
+            padding: 0.8rem 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--light);
+            border: 2px solid rgba(216, 64, 64, 0.3);
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            width: 100%;
+        }
+
+        .tech-dropdown-toggle:hover {
+            border-color: var(--primary);
+            background: rgba(216, 64, 64, 0.15);
+        }
+
+        .tech-dropdown-toggle.active {
+            border-color: var(--primary);
+            background: rgba(216, 64, 64, 0.15);
+        }
+
+        .dropdown-arrow {
+            transition: transform 0.3s;
+            font-size: 0.8rem;
+        }
+
+        .dropdown-arrow.rotated {
+            transform: rotate(180deg);
+        }
+
+        .tech-dropdown-menu {
+            position: absolute;
+            top: calc(100% + 0.5rem);
+            left: 0;
+            right: 0;
+            background: rgba(29, 22, 22, 0.98);
+            border: 2px solid rgba(216, 64, 64, 0.4);
+            border-radius: 15px;
+            padding: 1rem;
+            display: none;
+            flex-direction: column;
+            gap: 0.5rem;
+            max-height: 400px;
+            overflow-y: auto;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .tech-dropdown-menu.show {
+            display: flex;
+        }
+
+        .tech-search-box {
+            width: 100%;
+            padding: 0.7rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(216, 64, 64, 0.3);
+            border-radius: 8px;
+            color: var(--light);
+            font-size: 0.9rem;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin-bottom: 0.5rem;
+        }
+
+        .tech-search-box:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: rgba(216, 64, 64, 0.1);
+        }
+
+        .tech-search-box::placeholder {
+            color: var(--gray);
+        }
+
+        .tech-option {
+            padding: 0.7rem 1rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(216, 64, 64, 0.2);
+            border-radius: 8px;
+            color: var(--light);
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+        }
+
+        .tech-option:hover {
+            background: rgba(216, 64, 64, 0.15);
+            border-color: var(--primary);
+            transform: translateX(5px);
+        }
+
+        .tech-option.selected {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-color: transparent;
+            color: white;
+        }
+
+        .tech-option.hidden {
+            display: none;
+        }
+
+        .tech-dropdown-menu::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .tech-dropdown-menu::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+        }
+
+        .tech-dropdown-menu::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 10px;
+        }
+
+        .tech-dropdown-menu::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary);
+        }
+
+        .project-card.hidden {
+            display: none !important;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .project-platform {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .project-content p {
+            color: var(--gray);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tech-tag {
+            background: rgba(216, 64, 64, 0.15);
+            color: var(--primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 5px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(216, 64, 64, 0.4);
+        }
+
+        .project-role {
+            background: rgba(142, 22, 22, 0.15);
+            border: 1px solid rgba(142, 22, 22, 0.4);
+            padding: 0.8rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .project-role strong {
+            color: var(--secondary);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s;
+            font-weight: 600;
+            margin: 0.5rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(216, 64, 64, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: var(--darker);
+            color: var(--gray);
+            margin-top: 4rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 3rem 1rem;
+            }
+
+            .filter-btn {
+                font-size: 0.8rem;
+                padding: 0.5rem 1rem;
+            }
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#home">Ana Sayfa</a></li>
+            <li><a href="#about">Hakkımda</a></li>
+            <li><a href="#projects">Projelerim</a></li>
+            <li><a href="#contact">İletişim</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Emir Beşir</h1>
+            <p class="subtitle">Unity Oyun Geliştiricisi</p>
+            <a href="#projects" class="btn">Projelerimi Görüntüle</a>
+            <a href="#contact" class="btn">İletişime Geç</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>Hakkımda</h2>
+        <p style="text-align: center; max-width: 1000px; margin: 2rem auto; font-size: 1.1rem; color: var(--gray);">
+            Merhaba, ben Emir Beşir, Yazılım Mühendisliği dördüncü sınıf öğrencisiyim. (Lisans, Haziran 2026'da mezun
+            olacağım)
+        </p>
+        <p style="text-align: center; max-width: 1000px; margin: 2rem auto; font-size: 1.1rem; color: var(--gray);">
+            Oyun geliştirme yolculuğuma 2024 yılında başladım ve o zamandan beri çeşitli oyunlar ve prototipler
+            geliştirdim.
+        </p>
+        <p style="text-align: center; max-width: 1000px; margin: 2rem auto; font-size: 1.1rem; color: var(--gray);">
+            Temiz, güvenilir kod yazabileceğim ve deneyimli takım arkadaşlarıyla birlikte gelişebileceğim giriş seviyesi
+            oyun geliştirici pozisyonu arıyorum.
+        </p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>İletişim Bilgileri</h2>
+        <div class="contact-info">
+            <div class="contact-card">
+                <h3>Email</h3>
+                <a href="mailto:emirbesirx@gmail.com">emirbesirx@gmail.com</a>
+            </div>
+            <div class="contact-card">
+                <h3>LinkedIn</h3>
+                <a href="https://linkedin.com/in/emirbesir" target="_blank">linkedin.com/in/emirbesir</a>
+            </div>
+            <div class="contact-card">
+                <h3>GitHub</h3>
+                <a href="https://github.com/emirbesir" target="_blank">github.com/emirbesir</a>
+            </div>
+            <div class="contact-card">
+                <h3>Özgeçmiş</h3>
+                <a href="Emir_Beşir_CV.pdf" target="_blank">PDF İndir</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2>Projelerim</h2>
+
+        <!-- Filter Section -->
+        <div class="filter-section">
+            <!-- Category Filters -->
+            <div class="filter-group">
+                <span class="filter-label">Kategori</span>
+                <div class="filter-buttons" id="categoryFilters">
+                    <button class="filter-btn active" data-category="all">Tümü</button>
+                    <button class="filter-btn" data-category="published">Yayınlanmış Oyunlar</button>
+                    <button class="filter-btn" data-category="course">Kurs Oyunları</button>
+                    <button class="filter-btn" data-category="gamejam">Jam Oyunları</button>
+                    <button class="filter-btn" data-category="clone">Klon Oyunlar</button>
+                    <button class="filter-btn" data-category="prototype">Araçlar & Prototipler</button>
+                </div>
+            </div>
+
+            <!-- Technology Filters (Dropdown with search) -->
+            <div class="filter-group">
+                <span class="filter-label">Teknoloji</span>
+                <div style="display: flex; justify-content: center;">
+                    <div class="tech-dropdown-container">
+                        <button class="tech-dropdown-toggle" id="techDropdownToggle" aria-haspopup="listbox"
+                            aria-expanded="false" aria-label="Teknoloji filtresi">
+                            <span id="selectedTechText">Tümü</span>
+                            <span class="dropdown-arrow" aria-hidden="true">▼</span>
+                        </button>
+                        <div class="tech-dropdown-menu" id="techDropdownMenu" role="listbox"
+                            aria-label="Teknoloji seçenekleri">
+                            <input type="text" class="tech-search-box" id="techSearchBox"
+                                placeholder="🔍 Teknoloji ara..." aria-label="Teknoloji ara">
+                            <div id="techOptionsContainer">
+                                <!-- Tech options will be added here by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="projects-grid">
+
+            <!-- PROJECT 1 - Published Game Example 
+            <div class="project-card" data-category="published">
+                <div class="project-image">
+                    🎮
+                    <span class="project-badge">Yayınlandı</span>
+                </div>
+                <div class="project-content">
+                    <h3>Yayınlanmış Oyun Örneği</h3>
+                    <p class="project-platform">📱 Oynanabilir Platformlar: Steam / iOS / Android</p>
+                    <p>
+                        <strong>Hedef:</strong> Bu projenin ana amacı ve hedefi.<br><br>
+                        <strong>Açıklama:</strong> Oyunun açıklaması, benzersiz özellikleri.<br><br>
+                        <strong>Ana Özellikler:</strong> Öne çıkan özellikler.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Unity</span>
+                        <span class="tech-tag">C#</span>
+                        <span class="tech-tag">Photon</span>
+                        <span class="tech-tag">Firebase</span>
+                    </div>
+                    <div class="project-role">
+                        <strong>Rol:</strong> Ana Programcı
+                    </div>
+                    <a href="#" class="btn">Projeyi Görüntüle</a>
+                </div>
+            </div>
+            -->
+
+            <!-- PROJECT 2 - Game Jam Example -->
+            <div class="project-card" data-category="gamejam">
+                <div class="project-image">
+                    <img src="docs/img/jam-games/collapsed-universe.png" alt="Collapsed Universe">
+                    <span class="project-badge gamejam">Game Jam</span>
+                </div>
+                <div class="project-content">
+                    <p class="project-platform">Yapay Zeka ve Teknoloji Akademisi 2025 Jam &nbsp; Paralel Evrenler
+                        Teması</p>
+                    <h3>Collapsed Universe</h3>
+                    <p>
+                        Paralel Evrenler temalı Game Jam için geliştirilen 2D macera platform oyunu.<br>
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Unity 2D</span>
+                        <span class="tech-tag">C#</span>
+                        <span class="tech-tag">Unity Cinemachine</span>
+                        <span class="tech-tag">Unity Tilemap</span>
+                        <span class="tech-tag">Unity Post Processing</span>
+                    </div>
+                    <div class="project-role">
+                        <strong>Rol:</strong> Ana Programcı
+                    </div>
+                    <a href="https://calippooo.itch.io/collapsed-universe" class="btn" target="_blank">Oyna
+                        (Itch.io)</a>
+                    <a href="https://github.com/emirbesir/collapsed-universe" class="btn" target="_blank">Kaynak
+                        Kodları</a>
+                </div>
+            </div>
+
+            <!-- PROJECT 5 - Prototype Example -->
+            <div class="project-card" data-category="prototype">
+                <div class="project-image">
+                    <img src="docs/img/prototypes/folder-generator.png" alt="Klasör Oluşturucu">
+                    <span class="project-badge prototype">Editör Aracı</span>
+                </div>
+                <div class="project-content">
+                    <p class="project-platform">Unity Editör Aracı</p>
+                    <h3>Klasör Oluşturucu</h3>
+                    <p>
+                        Unity projelerinde hazır configlerle klasör oluşturmayı otomatikleştiren editör aracı.<br>
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Unity Editor</span>
+                        <span class="tech-tag">C#</span>
+                        <span class="tech-tag">Unity ScriptableObjects</span>
+                    </div>
+                    <div class="project-role">
+                        <strong>Rol:</strong> Solo Geliştirici
+                    </div>
+                    <a href="https://github.com/emirbesir/unity-folder-generator" class="btn" target="_blank">Kaynak
+                        Kodları</a>
+                </div>
+            </div>
+
+            <!-- PROJECT 3 - Course Game Example -->
+            <div class="project-card" data-category="course">
+                <div class="project-image">
+                    <img src="docs/img/course-games/btp-launchpad.png" alt="Küçük İnsanlar">
+                    <span class="project-badge course">Kurs Oyunu</span>
+                </div>
+                <div class="project-content">
+                    <p class="project-platform">Eğitim: <a href="https://gamedevrocket.podia.com/launchpad"
+                            target="_blank">Blackthornprod - Launchpad</a></p>
+                    <h3>Küçük İnsanlar</h3>
+                    <p>
+                        Unity çalışmak için yapılan 2D hızlı tempolu gerçek zamanlı strateji oyunu.<br>
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Unity 2D</span>
+                        <span class="tech-tag">C#</span>
+                    </div>
+                    <div class="project-role">
+                        <strong>Rol:</strong> Öğrenci
+                    </div>
+                    <a href="https://calippooo.itch.io/kucuk-insanlar" class="btn" target="_blank">Oyna (Itch.io)</a>
+                    <a href="https://github.com/emirbesir/btp-launchpad" class="btn" target="_blank">Kaynak Kodları</a>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="course">
+                <div class="project-image">
+                    <img src="docs/img/course-games/godot-2d-platformer.png" alt="2D Godot Platformer">
+                    <span class="project-badge course">Kurs Oyunu</span>
+                </div>
+                <div class="project-content">
+                    <p class="project-platform">Eğitim: <a href="https://www.youtube.com/watch?v=LOhfqjmasi0"
+                            target="_blank">Brackeys - Godot Beginner Tutorial</a></p>
+                    <h3>Godot 2D Platformer</h3>
+                    <p>
+                        Godot temelleri öğrenmek için yapılan 2D platform oyunu prototipi.<br>
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Godot 2D</span>
+                        <span class="tech-tag">GDScript</span>
+                        <span class="tech-tag">Godot Tilemap</span>
+                    </div>
+                    <div class="project-role">
+                        <strong>Rol:</strong> Öğrenci
+                    </div>
+                    <a href="https://calippooo.itch.io/godot-platformer-prototype" class="btn" target="_blank">Oyna
+                        (Itch.io)</a>
+                    <a href="https://github.com/emirbesir/godot-2d-platformer" class="btn" target="_blank">Kaynak
+                        Kodları</a>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="course">
+                <div class="project-image">
+                    <img src="docs/img/course-games/snow-surfer.png" alt="Snow Surfer">
+                    <span class="project-badge course">Kurs Oyunu</span>
+                </div>
+                <div class="project-content">
+                    <p class="project-platform">Eğitim: <a href="https://gamedev.tv/courses/unity6-complete-2d"
+                            target="_blank">GameDev.tv - Complete Unity 2D Developer</a></p>
+                    <h3>Snow Surfer</h3>
+                    <p>
+                        Unity öğrenmek için yapılan bir 2D sörf oyunu prototipi.<br>
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Unity 2D</span>
+                        <span class="tech-tag">C#</span>
+                        <span class="tech-tag">Unity Cinemachine</span>
+                        <span class="tech-tag">Unity Physics</span>
+                        <span class="tech-tag">Unity UI</span>
+                    </div>
+                    <div class="project-role">
+                        <strong>Rol:</strong> Öğrenci
+                    </div>
+                    <a href="https://calippooo.itch.io/snow-surfer" class="btn" target="_blank">Oyna (Itch.io)</a>
+                    <a href="https://github.com/emirbesir/gamedevtv-2d-course/tree/main/snow-surfer" class="btn"
+                        target="_blank">Kaynak Kodları</a>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="course">
+                <div class="project-image">
+                    <img src="docs/img/course-games/delivery-dash.png" alt="Delivery Dash">
+                    <span class="project-badge course">Kurs Oyunu</span>
+                </div>
+                <div class="project-content">
+                    <p class="project-platform">Eğitim: <a href="https://gamedev.tv/courses/unity6-complete-2d"
+                            target="_blank">GameDev.tv - Complete Unity 2D Developer</a></p>
+                    <h3>Delivery Dash</h3>
+                    <p>
+                        Unity temelleri öğrenmek için yapılan bir 2D teslimat oyunu prototipi.<br>
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Unity 2D</span>
+                        <span class="tech-tag">C#</span>
+                        <span class="tech-tag">Unity Cinemachine</span>
+                    </div>
+                    <div class="project-role">
+                        <strong>Rol:</strong> Öğrenci
+                    </div>
+                    <a href="https://calippooo.itch.io/delivery-dash" class="btn" target="_blank">Oyna (Itch.io)</a>
+                    <a href="https://github.com/emirbesir/gamedevtv-2d-course/tree/main/delivery-dash" class="btn"
+                        target="_blank">Kaynak Kodları</a>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="course">
+                <div class="project-image">
+                    <img src="docs/img/course-games/obstacle-dodge.png" alt="Obstacle Dodge">
+                    <span class="project-badge course">Kurs Oyunu</span>
+                </div>
+                <div class="project-content">
+                    <p class="project-platform">Eğitim: <a href="https://gamedev.tv/courses/unity6-complete-3d"
+                            target="_blank">GameDev.tv - Complete Unity 3D Developer</a></p>
+                    <h3>Obstacle Dodge</h3>
+                    <p>
+                        Unity temelleri öğrenmek için yapılan bir 3D engel aşma oyunu prototipi.<br>
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Unity 3D</span>
+                        <span class="tech-tag">C#</span>
+                        <span class="tech-tag">Unity Cinemachine</span>
+                    </div>
+                    <div class="project-role">
+                        <strong>Rol:</strong> Öğrenci
+                    </div>
+                    <a href="https://calippooo.itch.io/obstacle-dodge" class="btn" target="_blank">Oyna (Itch.io)</a>
+                    <a href="https://github.com/emirbesir/gamedevtv-3d-course/tree/main/obstacle-dodge" class="btn"
+                        target="_blank">Kaynak Kodları</a>
+                </div>
+            </div>
+
+            <!-- PROJECT 4 - Clone Game Example 
+            <div class="project-card" data-category="clone">
+                <div class="project-image">
+                    🎮
+                    <span class="project-badge clone">Klon Oyun</span>
+                </div>
+                <div class="project-content">
+                    <h3>Klon Oyun Örneği</h3>
+                    <p class="project-platform">🎯 Klonlanan Oyun: [Orjinal Oyun Adı]</p>
+                    <p>
+                        <strong>Hedef:</strong> Mevcut bir oyunu yeniden yaratarak mekanikleri öğrenmek.<br><br>
+                        <strong>Açıklama:</strong> Hangi mekanikleri klonladığınız ve ekstra özellikler.<br><br>
+                        <strong>Öğrenimler:</strong> Bu klon projeden öğrendiğiniz teknik detaylar.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Unity</span>
+                        <span class="tech-tag">C#</span>
+                        <span class="tech-tag">Unity Physics</span>
+                        <span class="tech-tag">Cinemachine</span>
+                    </div>
+                    <div class="project-role">
+                        <strong>Rol:</strong> Solo Geliştirici
+                    </div>
+                    <a href="#" class="btn">Projeyi Görüntüle</a>
+                </div>
+            </div>
+            -->
+
+
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Emir Beşir</p>
+    </footer>
+
+    <script>
+        // Filter functionality - Define these variables at the top level
+        let activeCategory = 'all';
+        let activeTech = 'all';
+
+        // Filter function - must be at top level to be accessible everywhere
+        function filterProjects() {
+            const projectCards = document.querySelectorAll('.project-card');
+
+            projectCards.forEach(card => {
+                const category = card.getAttribute('data-category');
+                const techTags = Array.from(card.querySelectorAll('.tech-tag')).map(tag => tag.textContent.trim());
+
+                const categoryMatch = activeCategory === 'all' || category === activeCategory;
+                const techMatch = activeTech === 'all' || techTags.includes(activeTech);
+
+                if (categoryMatch && techMatch) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+
+        // Collect unique technologies from all projects
+        function collectUniqueTechnologies() {
+            const techSet = new Set();
+            const techTags = document.querySelectorAll('.tech-tag');
+
+            techTags.forEach(tag => {
+                const tech = tag.textContent.trim();
+                techSet.add(tech);
+            });
+
+            return Array.from(techSet).sort();
+        }
+
+        // Create technology dropdown options
+        function createTechDropdown() {
+            const techOptionsContainer = document.getElementById('techOptionsContainer');
+            const technologies = collectUniqueTechnologies();
+
+            // Add "Tümü" option
+            const allOption = document.createElement('div');
+            allOption.className = 'tech-option selected';
+            allOption.setAttribute('data-tech', 'all');
+            allOption.textContent = 'Tümü';
+            techOptionsContainer.appendChild(allOption);
+
+            // Create option for each unique technology
+            technologies.forEach(tech => {
+                const option = document.createElement('div');
+                option.className = 'tech-option';
+                option.setAttribute('data-tech', tech);
+                option.textContent = tech;
+                techOptionsContainer.appendChild(option);
+            });
+        }
+
+        // Dropdown toggle functionality
+        function initializeDropdown() {
+            const dropdownToggle = document.getElementById('techDropdownToggle');
+            const dropdownMenu = document.getElementById('techDropdownMenu');
+            const dropdownArrow = document.querySelector('.dropdown-arrow');
+            const techSearchBox = document.getElementById('techSearchBox');
+            const selectedTechText = document.getElementById('selectedTechText');
+
+            if (!dropdownToggle || !dropdownMenu) return;
+
+            dropdownToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isExpanded = dropdownMenu.classList.toggle('show');
+                dropdownToggle.setAttribute('aria-expanded', isExpanded);
+                dropdownArrow.classList.toggle('rotated');
+                dropdownToggle.classList.toggle('active');
+
+                // Focus search box when opening
+                if (dropdownMenu.classList.contains('show')) {
+                    setTimeout(() => techSearchBox.focus(), 100);
+                }
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!dropdownToggle.contains(e.target) && !dropdownMenu.contains(e.target)) {
+                    dropdownMenu.classList.remove('show');
+                    dropdownToggle.setAttribute('aria-expanded', 'false');
+                    dropdownArrow.classList.remove('rotated');
+                    dropdownToggle.classList.remove('active');
+                }
+            });
+
+            // Search functionality
+            techSearchBox.addEventListener('input', (e) => {
+                const searchTerm = e.target.value.toLowerCase();
+                const options = document.querySelectorAll('.tech-option');
+
+                options.forEach(option => {
+                    const techName = option.textContent.toLowerCase();
+                    if (techName.includes(searchTerm)) {
+                        option.classList.remove('hidden');
+                    } else {
+                        option.classList.add('hidden');
+                    }
+                });
+            });
+
+            // Prevent dropdown from closing when clicking inside
+            dropdownMenu.addEventListener('click', (e) => {
+                e.stopPropagation();
+            });
+
+            // Technology dropdown selection
+            document.getElementById('techOptionsContainer').addEventListener('click', (e) => {
+                if (e.target.classList.contains('tech-option')) {
+                    // Remove selected from all options
+                    document.querySelectorAll('.tech-option').forEach(opt => {
+                        opt.classList.remove('selected');
+                    });
+
+                    // Add selected to clicked option
+                    e.target.classList.add('selected');
+                    activeTech = e.target.getAttribute('data-tech');
+
+                    // Update button text
+                    selectedTechText.textContent = e.target.textContent;
+
+                    // Close dropdown
+                    dropdownMenu.classList.remove('show');
+                    dropdownToggle.setAttribute('aria-expanded', 'false');
+                    dropdownArrow.classList.remove('rotated');
+                    dropdownToggle.classList.remove('active');
+
+                    // Clear search
+                    techSearchBox.value = '';
+                    document.querySelectorAll('.tech-option').forEach(opt => {
+                        opt.classList.remove('hidden');
+                    });
+
+                    filterProjects();
+                }
+            });
+        }
+
+        // Category filter buttons
+        document.getElementById('categoryFilters').addEventListener('click', (e) => {
+            if (e.target.classList.contains('filter-btn')) {
+                // Remove active from all category buttons
+                document.querySelectorAll('#categoryFilters .filter-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+
+                // Add active to clicked button
+                e.target.classList.add('active');
+                activeCategory = e.target.getAttribute('data-category');
+
+                filterProjects();
+            }
+        });
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            createTechDropdown();
+            initializeDropdown();
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.classList.contains('hidden')) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.project-card, .contact-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+
+</body>
+
+</html>
