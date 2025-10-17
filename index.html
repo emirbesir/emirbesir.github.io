@@ -46,6 +46,27 @@
             overflow-x: hidden;
         }
 
+        /* Skip Navigation Link */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--primary);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            z-index: 10000;
+            border-radius: 0 0 8px 0;
+            transition: top 0.3s;
+        }
+
+        .skip-link:focus {
+            top: 0;
+            outline: 3px solid var(--light);
+            outline-offset: 2px;
+        }
+
         /* Navigation */
         nav {
             position: fixed;
@@ -150,6 +171,15 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             animation: fadeInUp 0.8s ease-out;
+            text-shadow: 0 2px 10px rgba(216, 64, 64, 0.3);
+        }
+
+        /* Fallback for browsers that don't support background-clip */
+        @supports not (background-clip: text) {
+            .hero h1 {
+                color: var(--primary);
+                -webkit-text-fill-color: var(--primary);
+            }
         }
 
         .hero .subtitle {
@@ -326,6 +356,18 @@
             top: 0;
             left: 0;
             transition: transform 0.4s ease;
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+        }
+
+        .project-image img[src]:not([src=""]) {
+            opacity: 0;
+            animation: fadeInImage 0.5s ease-in-out forwards;
+        }
+
+        @keyframes fadeInImage {
+            to {
+                opacity: 1;
+            }
         }
 
         .project-card:hover .project-image img {
@@ -962,6 +1004,19 @@
             }
         }
 
+        /* ARIA Live Region */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
         /* Smooth Scrolling */
         html {
             scroll-behavior: smooth;
@@ -970,6 +1025,9 @@
 </head>
 
 <body>
+    <!-- Skip Navigation Link -->
+    <a href="#main-content" class="skip-link">Ana içeriğe atla</a>
+
     <!-- Navigation -->
     <nav>
         <ul>
@@ -1034,6 +1092,9 @@
     <section id="projects">
         <h2>Projelerim</h2>
 
+        <!-- Screen Reader Announcements -->
+        <div class="sr-only" aria-live="polite" aria-atomic="true" id="filterAnnouncement"></div>
+
         <!-- Filter Section -->
         <div class="filter-section">
             <!-- Category Filters -->
@@ -1072,7 +1133,7 @@
             </div>
         </div>
 
-        <div class="projects-grid">
+        <div class="projects-grid" id="main-content">
 
             <!-- PROJECT 1 - Published Game Example 
             <div class="project-card" data-category="published">
@@ -1105,7 +1166,7 @@
             <!-- PROJECT 2 - Game Jam Example -->
             <div class="project-card" data-category="gamejam">
                 <div class="project-image">
-                    <img src="docs/img/jam-games/collapsed-universe.png" alt="Collapsed Universe">
+                    <img src="docs/img/jam-games/collapsed-universe.png" alt="Collapsed Universe oyun ekran görüntüsü - 2D platform oyunu paralel evrenler teması">
                     <span class="project-badge gamejam">Game Jam</span>
                 </div>
                 <div class="project-content">
@@ -1135,7 +1196,7 @@
             <!-- PROJECT 5 - Prototype Example -->
             <div class="project-card" data-category="prototype">
                 <div class="project-image">
-                    <img src="docs/img/prototypes/folder-generator.png" alt="Klasör Oluşturucu">
+                    <img src="docs/img/prototypes/folder-generator.png" alt="Unity Klasör Oluşturucu editör aracı ekran görüntüsü">
                     <span class="project-badge prototype">Editör Aracı</span>
                 </div>
                 <div class="project-content">
@@ -1160,7 +1221,7 @@
             <!-- PROJECT 3 - Course Game Example -->
             <div class="project-card" data-category="course">
                 <div class="project-image">
-                    <img src="docs/img/course-games/btp-launchpad.png" alt="Küçük İnsanlar">
+                    <img src="docs/img/course-games/btp-launchpad.png" alt="Küçük İnsanlar 2D gerçek zamanlı strateji oyunu ekran görüntüsü">
                     <span class="project-badge course">Kurs Oyunu</span>
                 </div>
                 <div class="project-content">
@@ -1184,7 +1245,7 @@
 
             <div class="project-card" data-category="course">
                 <div class="project-image">
-                    <img src="docs/img/course-games/godot-2d-platformer.png" alt="2D Godot Platformer">
+                    <img src="docs/img/course-games/godot-2d-platformer.png" alt="Godot 2D Platformer oyunu karakter ve platform ekran görüntüsü">
                     <span class="project-badge course">Kurs Oyunu</span>
                 </div>
                 <div class="project-content">
@@ -1211,7 +1272,7 @@
 
             <div class="project-card" data-category="course">
                 <div class="project-image">
-                    <img src="docs/img/course-games/snow-surfer.png" alt="Snow Surfer">
+                    <img src="docs/img/course-games/snow-surfer.png" alt="Snow Surfer 2D sörf oyunu kar pisti ekran görüntüsü">
                     <span class="project-badge course">Kurs Oyunu</span>
                 </div>
                 <div class="project-content">
@@ -1239,7 +1300,7 @@
 
             <div class="project-card" data-category="course">
                 <div class="project-image">
-                    <img src="docs/img/course-games/delivery-dash.png" alt="Delivery Dash">
+                    <img src="docs/img/course-games/delivery-dash.png" alt="Delivery Dash 2D teslimat oyunu araç ve paketler ekran görüntüsü">
                     <span class="project-badge course">Kurs Oyunu</span>
                 </div>
                 <div class="project-content">
@@ -1265,7 +1326,7 @@
 
             <div class="project-card" data-category="course">
                 <div class="project-image">
-                    <img src="docs/img/course-games/obstacle-dodge.png" alt="Obstacle Dodge">
+                    <img src="docs/img/course-games/obstacle-dodge.png" alt="Obstacle Dodge 3D engel aşma oyunu oyuncu ve engeller ekran görüntüsü">
                     <span class="project-badge course">Kurs Oyunu</span>
                 </div>
                 <div class="project-content">
@@ -1340,6 +1401,7 @@
         // Filter function - must be at top level to be accessible everywhere
         function filterProjects() {
             const projectCards = document.querySelectorAll('.project-card');
+            let visibleCount = 0;
 
             projectCards.forEach(card => {
                 const category = card.getAttribute('data-category');
@@ -1350,10 +1412,17 @@
 
                 if (categoryMatch && techMatch) {
                     card.classList.remove('hidden');
+                    visibleCount++;
                 } else {
                     card.classList.add('hidden');
                 }
             });
+
+            // Announce to screen readers
+            const announcement = document.getElementById('filterAnnouncement');
+            if (announcement) {
+                announcement.textContent = `${visibleCount} proje gösteriliyor`;
+            }
         }
 
         // Collect unique technologies from all projects
