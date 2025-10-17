@@ -557,6 +557,20 @@ function clearAllFilters() {
 }
 
 // ========================================
+// Project Card Animations
+// ========================================
+
+/**
+ * Adds staggered animation delays to project cards
+ */
+function initializeProjectCardAnimations() {
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach((card, index) => {
+        card.style.animationDelay = `${index * 0.1}s`;
+    });
+}
+
+// ========================================
 // Initialization
 // ========================================
 
@@ -575,4 +589,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeMobileMenu();
     initializeImageLoading();
     updateFilterBadge();
+    initializeProjectCardAnimations();
 });
