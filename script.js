@@ -171,6 +171,7 @@ function initializeDropdown() {
             });
 
             filterProjects();
+            updateFilterBadge();
         }
     });
 }
@@ -195,6 +196,7 @@ function initializeCategoryFilters() {
             activeCategory = e.target.getAttribute('data-category');
 
             filterProjects();
+            updateFilterBadge();
         }
     });
 }
@@ -249,6 +251,37 @@ function initializeScrollAnimations() {
 }
 
 // ========================================
+// Image Loading States
+// ========================================
+
+/**
+ * Adds loading states to project images
+ */
+function initializeImageLoading() {
+    const projectImages = document.querySelectorAll('.project-image img');
+    
+    projectImages.forEach(img => {
+        const container = img.parentElement;
+        
+        // Add loading class
+        container.classList.add('loading');
+        
+        // Remove loading class when image loads
+        if (img.complete) {
+            container.classList.remove('loading');
+        } else {
+            img.addEventListener('load', () => {
+                container.classList.remove('loading');
+            });
+            
+            img.addEventListener('error', () => {
+                container.classList.remove('loading');
+            });
+        }
+    });
+}
+
+// ========================================
 // Back to Top Button
 // ========================================
 
@@ -277,6 +310,169 @@ function initializeBackToTop() {
 }
 
 // ========================================
+// Active Navigation Section Highlighting
+// ========================================
+
+/**
+ * Highlights the active navigation link based on scroll position
+ */
+function initializeScrollSpy() {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+    const observerOptions = {
+        rootMargin: '-20% 0px -70% 0px',
+        threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const sectionId = entry.target.getAttribute('id');
+                
+                // Remove active class from all links
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                });
+
+                // Add active class to current section link
+                const activeLink = document.querySelector(`nav a[href="#${sectionId}"]`);
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                }
+            }
+        });
+    }, observerOptions);
+
+    sections.forEach(section => observer.observe(section));
+}
+
+// ========================================
+// Mobile Navigation
+// ========================================
+
+/**
+ * Initializes mobile hamburger menu functionality
+ */
+function initializeMobileMenu() {
+    const nav = document.querySelector('nav');
+    const navUl = nav.querySelector('ul');
+    
+    // Create hamburger button
+    const hamburger = document.createElement('button');
+    hamburger.className = 'hamburger';
+    hamburger.setAttribute('aria-label', 'Menüyü aç');
+    hamburger.setAttribute('aria-expanded', 'false');
+    hamburger.innerHTML = `
+        <span></span>
+        <span></span>
+        <span></span>
+    `;
+    
+    nav.insertBefore(hamburger, navUl);
+    
+    // Toggle menu
+    hamburger.addEventListener('click', () => {
+        const isOpen = navUl.classList.toggle('mobile-open');
+        hamburger.classList.toggle('active');
+        hamburger.setAttribute('aria-expanded', isOpen);
+        hamburger.setAttribute('aria-label', isOpen ? 'Menüyü kapat' : 'Menüyü aç');
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    
+    // Close menu when link is clicked
+    navUl.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navUl.classList.remove('mobile-open');
+            hamburger.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+            hamburger.setAttribute('aria-label', 'Menüyü aç');
+            document.body.style.overflow = '';
+        });
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!nav.contains(e.target) && navUl.classList.contains('mobile-open')) {
+            navUl.classList.remove('mobile-open');
+            hamburger.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+            hamburger.setAttribute('aria-label', 'Menüyü aç');
+            document.body.style.overflow = '';
+        }
+    });
+}
+
+// ========================================
+// Filter Counter Badge
+// ========================================
+
+/**
+ * Updates the filter counter badge showing active filters
+ */
+function updateFilterBadge() {
+    let activeFiltersCount = 0;
+    let filterText = '';
+    
+    if (activeCategory !== 'all') {
+        activeFiltersCount++;
+        const categoryBtn = document.querySelector(`[data-category="${activeCategory}"]`);
+        filterText = categoryBtn ? categoryBtn.textContent : activeCategory;
+    }
+    
+    if (activeTech !== 'all') {
+        activeFiltersCount++;
+        if (filterText) filterText += ', ';
+        filterText += activeTech;
+    }
+    
+    let badge = document.getElementById('filterBadge');
+    
+    if (activeFiltersCount > 0) {
+        if (!badge) {
+            badge = document.createElement('div');
+            badge.id = 'filterBadge';
+            badge.className = 'filter-badge';
+            document.querySelector('.filter-section').prepend(badge);
+        }
+        badge.innerHTML = `
+            <span class="filter-badge-icon">🔍</span>
+            <span class="filter-badge-text">${activeFiltersCount} filtre aktif: ${filterText}</span>
+            <button class="filter-badge-clear" aria-label="Tüm filtreleri temizle">✕</button>
+        `;
+        
+        // Add clear button functionality
+        badge.querySelector('.filter-badge-clear').addEventListener('click', clearAllFilters);
+    } else if (badge) {
+        badge.remove();
+    }
+}
+
+/**
+ * Clears all active filters
+ */
+function clearAllFilters() {
+    // Reset category
+    activeCategory = 'all';
+    document.querySelectorAll('#categoryFilters .filter-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    document.querySelector('[data-category="all"]').classList.add('active');
+    
+    // Reset technology
+    activeTech = 'all';
+    document.getElementById('selectedTechText').textContent = 'Tümü';
+    document.querySelectorAll('.tech-option').forEach(opt => {
+        opt.classList.remove('selected');
+    });
+    document.querySelector('[data-tech="all"]').classList.add('selected');
+    
+    // Update display
+    filterProjects();
+    updateFilterBadge();
+}
+
+// ========================================
 // Initialization
 // ========================================
 
@@ -290,4 +486,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeSmoothScrolling();
     initializeScrollAnimations();
     initializeBackToTop();
+    initializeScrollSpy();
+    initializeMobileMenu();
+    initializeImageLoading();
+    updateFilterBadge();
 });
