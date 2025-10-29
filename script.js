@@ -4,6 +4,21 @@
  */
 
 // ========================================
+// Utility Functions
+// ========================================
+
+/**
+ * Escapes HTML special characters to prevent XSS attacks
+ * @param {string} str - The string to escape
+ * @returns {string} The escaped string
+ */
+function escapeHTML(str) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+}
+
+// ========================================
 // Global State Variables
 // ========================================
 let activeCategory = 'all';
@@ -519,14 +534,27 @@ function updateFilterBadge() {
             badge.className = 'filter-badge';
             document.querySelector('.filter-section').prepend(badge);
         }
-        badge.innerHTML = `
-            <span class="filter-badge-icon">🔍</span>
-            <span class="filter-badge-text">${activeFiltersCount} filtre aktif: ${filterText}</span>
-            <button class="filter-badge-clear" aria-label="Tüm filtreleri temizle">✕</button>
-        `;
         
-        // Add clear button functionality
-        badge.querySelector('.filter-badge-clear').addEventListener('click', clearAllFilters);
+        // Create badge content safely
+        const badgeIcon = document.createElement('span');
+        badgeIcon.className = 'filter-badge-icon';
+        badgeIcon.textContent = '🔍';
+        
+        const badgeText = document.createElement('span');
+        badgeText.className = 'filter-badge-text';
+        badgeText.textContent = `${activeFiltersCount} filtre aktif: ${filterText}`;
+        
+        const badgeClear = document.createElement('button');
+        badgeClear.className = 'filter-badge-clear';
+        badgeClear.setAttribute('aria-label', 'Tüm filtreleri temizle');
+        badgeClear.textContent = '✕';
+        badgeClear.addEventListener('click', clearAllFilters);
+        
+        // Clear previous content and append new elements
+        badge.innerHTML = '';
+        badge.appendChild(badgeIcon);
+        badge.appendChild(badgeText);
+        badge.appendChild(badgeClear);
     } else if (badge) {
         badge.remove();
     }

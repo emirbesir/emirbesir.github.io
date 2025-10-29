@@ -4,11 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emir Beşir - Unity Oyun Geliştiricisi</title>
+    <title>Emir Beşir - Unity Game Developer | C# Portfolio</title>
+
+    <!-- Performance Optimization -->
+    <link rel="preconnect" href="https://img.itch.zone" crossorigin>
+    <link rel="dns-prefetch" href="https://img.itch.zone">
 
     <!-- Content Security Policy -->
-    <meta http-equiv="Content-Security-Policy" 
-          content="default-src 'self'; 
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; 
                    img-src 'self' https://img.itch.zone data:; 
                    script-src 'self' 'unsafe-inline'; 
                    style-src 'self' 'unsafe-inline'; 
@@ -20,19 +23,33 @@
 
     <!-- SEO & Social Sharing Meta Tags -->
     <meta name="description"
-        content="Emir Beşir'in Unity oyun geliştirme portfolyosu. Yayınlanmış oyunlar, prototipler ve daha fazlasını keşfedin.">
+        content="Unity game developer portfolio showcasing published games, prototypes, and game jams. Experienced in C#, 2D/3D game development, and Unity Engine. Seeking entry-level game developer positions.">
     <meta name="author" content="Emir Beşir">
-    <meta name="keywords" content="Unity, Oyun Geliştirici, Game Developer, C#, Portfolio, Emir Beşir">
+    <meta name="keywords"
+        content="Unity Game Developer, C# Developer, Game Developer Portfolio, Unity Portfolio, Game Programmer, Unity Engineer, Indie Game Developer, Game Development, Emir Beşir, emirbesir, Software Engineer">
 
     <!-- Open Graph Tags for Social Media -->
-    <meta property="og:title" content="Emir Beşir - Unity Oyun Geliştiricisi">
+    <meta property="og:title" content="Emir Beşir - Unity Game Developer Portfolio">
     <meta property="og:description"
-        content="Emir Beşir'in Unity oyun geliştirme portfolyosu. Yayınlanmış oyunlar, prototipler ve daha fazlasını keşfedin.">
+        content="Unity game developer portfolio featuring published games, prototypes, and game jams. Skilled in C# and Unity Engine development.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://emirbesir.github.io">
+    <meta property="og:image" content="https://emirbesir.github.io/docs/img/og-image.png">
+    <meta property="og:image:alt" content="Emir Beşir - Unity Game Developer Portfolio">
+    <meta property="og:locale" content="tr_TR">
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Emir Beşir - Unity Game Developer">
+    <meta name="twitter:description" content="Unity game developer portfolio showcasing games and prototypes.">
+    <meta name="twitter:image" content="https://emirbesir.github.io/docs/img/og-image.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://emirbesir.github.io">
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="docs/img/logo.svg">
+    <link rel="apple-touch-icon" href="docs/img/apple-touch-icon.png">
 
     <!-- External Stylesheet -->
     <link rel="stylesheet" href="styles.css">
@@ -44,7 +61,7 @@
     <a href="#main-content" class="skip-link">Ana içeriğe atla</a>
 
     <!-- Navigation -->
-    <nav>
+    <nav role="navigation" aria-label="Ana navigasyon">
         <ul>
             <li><a href="#home">Ana Sayfa</a></li>
             <li><a href="#about">Hakkımda</a></li>
@@ -53,95 +70,104 @@
         </ul>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Emir Beşir</h1>
-            <p class="subtitle">Unity Oyun Geliştiricisi</p>
-            <a href="#projects" class="btn">Projelerimi Görüntüle</a>
-            <a href="#contact" class="btn">İletişime Geç</a>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about">
-        <h2>Hakkımda</h2>
-        <p style="text-align: center; max-width: 1000px; margin: 2rem auto; font-size: 1.1rem; color: var(--gray);">
-            Merhaba, ben Emir Beşir, Yazılım Mühendisliği dördüncü sınıf öğrencisiyim. (Lisans, Haziran 2026'da mezun
-            olacağım)
-        </p>
-        <p style="text-align: center; max-width: 1000px; margin: 2rem auto; font-size: 1.1rem; color: var(--gray);">
-            Oyun geliştirme yolculuğuma 2024 yılında başladım ve o zamandan beri çeşitli oyunlar ve prototipler
-            geliştirdim.
-        </p>
-        <p style="text-align: center; max-width: 1000px; margin: 2rem auto; font-size: 1.1rem; color: var(--gray);">
-            Temiz, güvenilir kod yazabileceğim ve deneyimli takım arkadaşlarıyla birlikte gelişebileceğim giriş seviyesi
-            oyun geliştirici pozisyonu arıyorum.
-        </p>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2>İletişim Bilgileri</h2>
-        <div class="contact-info">
-            <div class="contact-card">
-                <h3>Email</h3>
-                <a href="mailto:emirbesirx@gmail.com">emirbesirx@gmail.com</a>
-            </div>
-            <div class="contact-card">
-                <h3>LinkedIn</h3>
-                <a href="https://linkedin.com/in/emirbesir" target="_blank">linkedin.com/in/emirbesir</a>
-            </div>
-            <div class="contact-card">
-                <h3>GitHub</h3>
-                <a href="https://github.com/emirbesir" target="_blank">github.com/emirbesir</a>
-            </div>
-            <div class="contact-card">
-                <h3>Özgeçmiş</h3>
-                <a href="docs/Emir_Beşir_CV.pdf" target="_blank">PDF İndir</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects">
-        <h2>Projelerim</h2>
-
-        <div class="projects-grid" id="main-content">
-            <!-- Games will be loaded dynamically from data/games.json -->
-            <div class="loading-container" style="grid-column: 1/-1; text-align: center; padding: 3rem;">
-                <div class="loading-spinner" style="font-size: 3rem; margin-bottom: 1rem;" aria-label="Yükleniyor">
-                    🎮
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <header>
+            <section id="home" class="hero">
+                <div class="hero-content">
+                    <h1>Emir Beşir</h1>
+                    <p class="subtitle">Unity Oyun Geliştiricisi</p>
+                    <a href="#projects" class="btn">Projelerimi Görüntüle</a>
+                    <a href="#contact" class="btn">İletişime Geç</a>
                 </div>
-                <p style="font-size: 1.2rem; color: var(--gray);">
-                    Oyunlar yükleniyor...
-                </p>
+            </section>
+        </header>
+
+        <!-- About Section -->
+        <section id="about">
+            <h2>Hakkımda</h2>
+            <p style="text-align: center; max-width: 1000px; margin: 2rem auto; font-size: 1.1rem; color: var(--gray);">
+                Merhaba, ben Emir Beşir, Yazılım Mühendisliği dördüncü sınıf öğrencisiyim. (Lisans, Haziran 2026'da
+                mezun
+                olacağım)
+            </p>
+            <p style="text-align: center; max-width: 1000px; margin: 2rem auto; font-size: 1.1rem; color: var(--gray);">
+                Oyun geliştirme yolculuğuma 2024 yılında başladım ve o zamandan beri çeşitli oyunlar ve prototipler
+                geliştirdim.
+            </p>
+            <p style="text-align: center; max-width: 1000px; margin: 2rem auto; font-size: 1.1rem; color: var(--gray);">
+                Temiz, güvenilir kod yazabileceğim ve deneyimli takım arkadaşlarıyla birlikte gelişebileceğim giriş
+                seviyesi
+                oyun geliştirici pozisyonu arıyorum.
+            </p>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>İletişim Bilgileri</h2>
+            <div class="contact-info">
+                <div class="contact-card">
+                    <h3>Email</h3>
+                    <a href="mailto:emirbesirx@gmail.com">emirbesirx@gmail.com</a>
+                </div>
+                <div class="contact-card">
+                    <h3>LinkedIn</h3>
+                    <a href="https://linkedin.com/in/emirbesir" target="_blank"
+                        rel="noopener noreferrer">linkedin.com/in/emirbesir</a>
+                </div>
+                <div class="contact-card">
+                    <h3>GitHub</h3>
+                    <a href="https://github.com/emirbesir" target="_blank"
+                        rel="noopener noreferrer">github.com/emirbesir</a>
+                </div>
+                <div class="contact-card">
+                    <h3>Özgeçmiş</h3>
+                    <a href="docs/Emir_Beşir_CV.pdf" target="_blank" rel="noopener noreferrer">PDF İndir</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2>Projelerim</h2>
+
+            <div class="projects-grid" id="main-content">
+                <!-- Games will be loaded dynamically from data/games.json -->
+                <div class="loading-container" style="grid-column: 1/-1; text-align: center; padding: 3rem;">
+                    <div class="loading-spinner" style="font-size: 3rem; margin-bottom: 1rem;" aria-label="Yükleniyor">
+                        🎮
+                    </div>
+                    <p style="font-size: 1.2rem; color: var(--gray);">
+                        Oyunlar yükleniyor...
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Theme Switcher -->
+        <div class="theme-switcher" id="themeSwitcher">
+            <button class="theme-toggle-btn" id="themeToggle" aria-label="Tema değiştir" aria-expanded="false">
+                🎨
+            </button>
+            <div class="theme-dropdown" id="themeDropdown" role="menu" aria-label="Tema seçenekleri">
+                <div class="theme-label">Tema Seç</div>
+                <div class="theme-option active" data-theme="dark" role="menuitem" tabindex="0">
+                    <div class="theme-color-preview red"></div>
+                    <span class="theme-option-text">Dark</span>
+                </div>
+                <div class="theme-option" data-theme="light" role="menuitem" tabindex="0">
+                    <div class="theme-color-preview light"></div>
+                    <span class="theme-option-text">Light</span>
+                </div>
             </div>
         </div>
-    </section>
-
+    </main>
+    
     <!-- Footer -->
     <footer>
         <p>&copy; 2025 Emir Beşir</p>
     </footer>
-
-    <!-- Theme Switcher -->
-    <div class="theme-switcher" id="themeSwitcher">
-        <button class="theme-toggle-btn" id="themeToggle" aria-label="Tema değiştir" aria-expanded="false">
-            🎨
-        </button>
-        <div class="theme-dropdown" id="themeDropdown" role="menu" aria-label="Tema seçenekleri">
-            <div class="theme-label">Tema Seç</div>
-            <div class="theme-option active" data-theme="dark" role="menuitem" tabindex="0">
-                <div class="theme-color-preview red"></div>
-                <span class="theme-option-text">Dark</span>
-            </div>
-            <div class="theme-option" data-theme="light" role="menuitem" tabindex="0">
-                <div class="theme-color-preview light"></div>
-                <span class="theme-option-text">Light</span>
-            </div>
-        </div>
-    </div>
 
     <!-- Back to Top Button -->
     <button class="back-to-top" id="backToTop" aria-label="Başa dön">
