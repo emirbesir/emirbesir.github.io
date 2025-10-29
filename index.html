@@ -137,36 +137,16 @@
         </div>
 
         <div class="projects-grid" id="main-content">
-
-            <!-- 
-            PROJECT 1 - Published Game Example
-
-            <div class="project-card" data-category="published">
-                <div class="project-image">
-                    🎮
-                    <span class="project-badge">Yayınlandı</span>
-                </div>
-                <div class="project-content">
-                    <h3>Yayınlanmış Oyun Örneği</h3>
-                    <p class="project-platform">📱 Oynanabilir Platformlar: Steam / iOS / Android</p>
-                    <p>
-                        <strong>Hedef:</strong> Bu projenin ana amacı ve hedefi.<br><br>
-                        <strong>Açıklama:</strong> Oyunun açıklaması, benzersiz özellikleri.<br><br>
-                        <strong>Ana Özellikler:</strong> Öne çıkan özellikler.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Unity</span>
-                        <span class="tech-tag">C#</span>
-                        <span class="tech-tag">Photon</span>
-                        <span class="tech-tag">Firebase</span>
-                    </div>
-                    <div class="project-role">
-                        <strong>Rol:</strong> Ana Programcı
-                    </div>
-                    <a href="#" class="btn">Projeyi Görüntüle</a>
-                </div>
+            <!-- Games will be loaded dynamically from data/games.json -->
+            <div style="grid-column: 1/-1; text-align: center; padding: 3rem;">
+                <p style="font-size: 1.2rem; color: var(--gray);">
+                    🎮 Oyunlar yükleniyor...
+                </p>
             </div>
-            -->
+        </div>
+        
+        <!-- Manual games section (if you want to keep some hardcoded games) -->
+        <div class="manual-projects-grid" style="display: none;">
             <div class="project-card" data-category="gamejam">
                 <div class="project-image">
                     <img src="docs/img/jam-games/last-jack.png"
@@ -415,8 +395,10 @@
                     <a href="#" class="btn">Projeyi Görüntüle</a>
                 </div>
             </div>
-            -->
+                </div>
+            </div>
         </div>
+    </div>
     </section>
 
     <!-- Footer -->
@@ -448,6 +430,7 @@
     </button>
 
     <!-- External JavaScript -->
+    <script src="scripts/load-games.js" defer></script>
     <script src="script.js" defer></script>
 
 </body>

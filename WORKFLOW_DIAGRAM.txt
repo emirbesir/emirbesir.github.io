@@ -1,0 +1,104 @@
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                  ITCH.IO AUTOMATION WORKFLOW                    │
+└─────────────────────────────────────────────────────────────────┘
+
+┌──────────────────┐
+│  GitHub Actions  │ ← Triggers daily at 2 AM UTC
+│   (Scheduled)    │   OR manually from Actions tab
+└────────┬─────────┘
+         │
+         ▼
+┌─────────────────────────────────────────┐
+│  scripts/fetch-games.js                 │
+│                                         │
+│  1. Gets ITCH_API_KEY from GitHub       │
+│     Secret (secure, never exposed)      │
+│                                         │
+│  2. Calls Itch.io API:                  │
+│     GET /api/1/{KEY}/my-games          │
+│                                         │
+│  3. Transforms data:                    │
+│     • Auto-categorizes games            │
+│     • Extracts technologies             │
+│     • Formats for portfolio             │
+│                                         │
+│  4. Saves to data/games.json            │
+└────────┬────────────────────────────────┘
+         │
+         ▼
+┌─────────────────────────────────────────┐
+│  data/games.json                        │
+│  {                                      │
+│    "lastUpdated": "2025-01-28...",     │
+│    "totalGames": 5,                     │
+│    "games": [...]                       │
+│  }                                      │
+└────────┬────────────────────────────────┘
+         │
+         │ Auto-commit & push
+         ▼
+┌─────────────────────────────────────────┐
+│  GitHub Repository                      │
+│  (emirbesir.github.io)                 │
+└────────┬────────────────────────────────┘
+         │
+         │ GitHub Pages serves
+         ▼
+┌─────────────────────────────────────────┐
+│  Live Website                           │
+│  https://emirbesir.github.io            │
+│                                         │
+│  index.html loads:                      │
+│  scripts/load-games.js                  │
+└────────┬────────────────────────────────┘
+         │
+         ▼
+┌─────────────────────────────────────────┐
+│  scripts/load-games.js                  │
+│                                         │
+│  1. Fetches data/games.json             │
+│  2. Creates project cards dynamically   │
+│  3. Populates projects grid             │
+│  4. Applies filters                     │
+└─────────────────────────────────────────┘
+         │
+         ▼
+┌─────────────────────────────────────────┐
+│  User sees games automatically!         │
+│  ✓ Latest game info                     │
+│  ✓ Download/view counts                 │
+│  ✓ Cover images                         │
+│  ✓ Auto-categorized                     │
+└─────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════
+                          DATA FLOW
+═══════════════════════════════════════════════════════════════════
+
+Itch.io API → GitHub Actions → data/games.json → GitHub Repo
+                                                       ↓
+                                               GitHub Pages
+                                                       ↓
+                                          Your Live Portfolio
+                                                       ↓
+                                                User's Browser
+
+═══════════════════════════════════════════════════════════════════
+                       SECURITY LAYERS
+═══════════════════════════════════════════════════════════════════
+
+✓ API Key stored in GitHub Secrets (encrypted)
+✓ Never appears in source code
+✓ Only GitHub Actions can access it
+✓ Public can only see game data (not the key)
+
+═══════════════════════════════════════════════════════════════════
+                      UPDATE FREQUENCY
+═══════════════════════════════════════════════════════════════════
+
+Automatic:   Daily at 2:00 AM UTC
+Manual:      Anytime from Actions tab
+On Push:     When workflow files change
+
+```
