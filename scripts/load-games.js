@@ -35,10 +35,6 @@ function createProjectCard(game) {
         ? platformIcons.join(' ') 
         : 'Web';
     
-    const techTags = game.technologies
-        .map(tech => `<span class="tech-tag">${tech}</span>`)
-        .join('');
-    
     return `
         <div class="project-card">
             <div class="project-image">
@@ -49,22 +45,17 @@ function createProjectCard(game) {
             </div>
             <div class="project-content">
                 <h3>${game.title}</h3>
-                <div class="project-platform">
-                    <a href="${game.url}" target="_blank" rel="noopener noreferrer">
-                        ${platformText} Itch.io'da Görüntüle
-                    </a>
-                </div>
                 <p>${game.description}</p>
-                <div class="project-tech">
-                    ${techTags}
-                </div>
                 ${game.stats.downloads > 0 || game.stats.views > 0 ? `
                     <div class="project-stats" style="margin-top: 1rem; font-size: 0.9rem; color: var(--gray);">
+                        ${platformText}
+                        ${(game.stats.downloads > 0 || game.stats.views > 0) && platformIcons.length > 0 ? ' • ' : ''}
                         ${game.stats.downloads > 0 ? `📥 ${game.stats.downloads} indirme` : ''}
                         ${game.stats.downloads > 0 && game.stats.views > 0 ? ' • ' : ''}
                         ${game.stats.views > 0 ? `👁️ ${game.stats.views} görüntülenme` : ''}
                     </div>
                 ` : ''}
+                <a href="${game.url}" class="btn" target="_blank" rel="noopener noreferrer">Oyna (Itch.io)</a>
             </div>
         </div>
     `;
