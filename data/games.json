@@ -1,11 +1,11 @@
 {
-  "lastUpdated": "2025-10-29T13:18:07.641Z",
+  "lastUpdated": "2025-10-29T13:55:35.700Z",
   "totalGames": 7,
   "games": [
     {
       "id": 3965470,
       "title": "Collapsed Universe",
-      "description": "No description available",
+      "description": "Explore different universes!",
       "url": "https://calippooo.itch.io/collapsed-universe",
       "coverUrl": "https://img.itch.zone/aW1nLzIzNjU2NTQyLnBuZw==/315x250%23c/nKxlr%2B.png",
       "category": "prototype",
@@ -21,7 +21,7 @@
       },
       "stats": {
         "downloads": 0,
-        "views": 2
+        "views": 4
       },
       "published": true,
       "publishedAt": "2025-10-17 02:57:44",
@@ -47,7 +47,7 @@
       },
       "stats": {
         "downloads": 0,
-        "views": 1
+        "views": 2
       },
       "published": true,
       "publishedAt": "2025-09-27 18:48:18",
@@ -73,7 +73,7 @@
       },
       "stats": {
         "downloads": 0,
-        "views": 30
+        "views": 32
       },
       "published": true,
       "publishedAt": "2025-10-20 13:25:26",
@@ -99,7 +99,7 @@
       },
       "stats": {
         "downloads": 0,
-        "views": 0
+        "views": 1
       },
       "published": true,
       "publishedAt": "2025-10-17 04:06:27",
@@ -125,7 +125,7 @@
       },
       "stats": {
         "downloads": 0,
-        "views": 0
+        "views": 1
       },
       "published": true,
       "publishedAt": "2025-10-17 02:08:16",
@@ -151,7 +151,7 @@
       },
       "stats": {
         "downloads": 0,
-        "views": 1
+        "views": 2
       },
       "published": true,
       "publishedAt": "2025-09-29 17:20:35",
@@ -177,7 +177,7 @@
       },
       "stats": {
         "downloads": 0,
-        "views": 0
+        "views": 1
       },
       "published": true,
       "publishedAt": "2025-09-28 21:56:46",
