@@ -116,6 +116,11 @@ function renderGames(games) {
     const cardsHTML = games.map(game => createProjectCard(game)).join('');
     projectsGrid.innerHTML = cardsHTML;
     
+    // Recreate tech dropdown with new games
+    if (typeof createTechDropdown === 'function') {
+        createTechDropdown();
+    }
+    
     // Reinitialize scroll animations for new cards
     if (typeof initializeScrollAnimations === 'function') {
         initializeScrollAnimations();
@@ -157,8 +162,6 @@ function updateLastUpdatedTimestamp(timestamp) {
  * Initializes the games loader
  */
 async function initializeGamesLoader() {
-    console.log('🎮 Loading games from Itch.io...');
-    
     const data = await fetchGames();
     
     if (data.lastUpdated) {
