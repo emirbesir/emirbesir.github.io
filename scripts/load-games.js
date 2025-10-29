@@ -2,22 +2,6 @@
  * Games Loader - Dynamically loads games from games.json
  */
 
-const CATEGORY_LABELS = {
-    'published': 'Yayınlandı',
-    'course': 'Kurs Oyunu',
-    'gamejam': 'Jam Oyunu',
-    'clone': 'Klon',
-    'prototype': 'Prototip'
-};
-
-const CATEGORY_EMOJIS = {
-    'published': '🎮',
-    'course': '📚',
-    'gamejam': '⚡',
-    'clone': '🔄',
-    'prototype': '🔧'
-};
-
 /**
  * Fetches games data from JSON file
  * @returns {Promise<object>} Games data
@@ -55,17 +39,13 @@ function createProjectCard(game) {
         .map(tech => `<span class="tech-tag">${tech}</span>`)
         .join('');
     
-    const categoryLabel = CATEGORY_LABELS[game.category] || game.category;
-    const categoryEmoji = CATEGORY_EMOJIS[game.category] || '🎮';
-    
     return `
-        <div class="project-card" data-category="${game.category}">
+        <div class="project-card">
             <div class="project-image">
                 ${game.coverUrl 
                     ? `<img src="${game.coverUrl}" alt="${game.title}" loading="lazy">` 
-                    : `<div style="font-size: 4rem; padding: 2rem;">${categoryEmoji}</div>`
+                    : `<div style="font-size: 4rem; padding: 2rem;">🎮</div>`
                 }
-                <span class="project-badge ${game.category}">${categoryLabel}</span>
             </div>
             <div class="project-content">
                 <h3>${game.title}</h3>
@@ -116,11 +96,6 @@ function renderGames(games) {
     const cardsHTML = games.map(game => createProjectCard(game)).join('');
     projectsGrid.innerHTML = cardsHTML;
     
-    // Recreate tech dropdown with new games
-    if (typeof createTechDropdown === 'function') {
-        createTechDropdown();
-    }
-    
     // Reinitialize scroll animations for new cards
     if (typeof initializeScrollAnimations === 'function') {
         initializeScrollAnimations();
@@ -129,11 +104,6 @@ function renderGames(games) {
     // Reinitialize image loading for new images
     if (typeof initializeImageLoading === 'function') {
         initializeImageLoading();
-    }
-    
-    // Apply filters if any are active
-    if (typeof filterProjects === 'function') {
-        filterProjects();
     }
     
     console.log(`✅ Rendered ${games.length} games`);
@@ -168,7 +138,10 @@ async function initializeGamesLoader() {
         updateLastUpdatedTimestamp(data.lastUpdated);
     }
     
-    renderGames(data.games || []);
+    // Sort games by view count (highest first)
+    const sortedGames = (data.games || []).sort((a, b) => b.stats.views - a.stats.views);
+    
+    renderGames(sortedGames);
 }
 
 // Load games when DOM is ready
