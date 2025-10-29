@@ -6,6 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Emir Beşir - Unity Oyun Geliştiricisi</title>
 
+    <!-- Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" 
+          content="default-src 'self'; 
+                   img-src 'self' https://img.itch.zone data:; 
+                   script-src 'self' 'unsafe-inline'; 
+                   style-src 'self' 'unsafe-inline'; 
+                   connect-src 'self'; 
+                   font-src 'self'; 
+                   object-src 'none'; 
+                   base-uri 'self'; 
+                   form-action 'self';">
+
     <!-- SEO & Social Sharing Meta Tags -->
     <meta name="description"
         content="Emir Beşir'in Unity oyun geliştirme portfolyosu. Yayınlanmış oyunlar, prototipler ve daha fazlasını keşfedin.">
@@ -97,9 +109,12 @@
 
         <div class="projects-grid" id="main-content">
             <!-- Games will be loaded dynamically from data/games.json -->
-            <div style="grid-column: 1/-1; text-align: center; padding: 3rem;">
+            <div class="loading-container" style="grid-column: 1/-1; text-align: center; padding: 3rem;">
+                <div class="loading-spinner" style="font-size: 3rem; margin-bottom: 1rem;" aria-label="Yükleniyor">
+                    🎮
+                </div>
                 <p style="font-size: 1.2rem; color: var(--gray);">
-                    🎮 Oyunlar yükleniyor...
+                    Oyunlar yükleniyor...
                 </p>
             </div>
         </div>

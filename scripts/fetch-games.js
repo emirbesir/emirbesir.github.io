@@ -45,6 +45,34 @@ function fetchData(url) {
 }
 
 /**
+ * Validates a game object to ensure it has required fields
+ * @param {object} game - Game object to validate
+ * @returns {boolean} True if valid, false otherwise
+ */
+function validateGame(game) {
+    // Check required fields
+    if (!game || typeof game !== 'object') {
+        console.warn('Invalid game object:', game);
+        return false;
+    }
+    
+    if (!game.id || !game.title || !game.url) {
+        console.warn('Game missing required fields (id, title, or url):', game);
+        return false;
+    }
+    
+    // Validate URL format
+    try {
+        new URL(game.url);
+    } catch (error) {
+        console.warn('Invalid URL for game:', game.title, game.url);
+        return false;
+    }
+    
+    return true;
+}
+
+/**
  * Categorizes a game based on its title and tags
  * @param {object} game - The game object from itch.io
  * @returns {string} Category: 'published', 'course', 'gamejam', 'clone', or 'prototype'
@@ -169,10 +197,18 @@ async function main() {
         
         console.log(`✅ Found ${response.games.length} games`);
         
-        // Transform games to portfolio format
+        // Transform and validate games
         const transformedGames = response.games
             .filter(game => game.published) // Only include published games
-            .map(transformGame);
+            .map(transformGame)
+            .filter(validateGame); // Validate transformed games
+        
+        if (transformedGames.length === 0) {
+            console.log('⚠️  No valid games after filtering');
+            process.exit(0);
+        }
+        
+        console.log(`✅ ${transformedGames.length} valid games after filtering`);
         
         // Create data directory if it doesn't exist
         const dataDir = path.dirname(OUTPUT_FILE);

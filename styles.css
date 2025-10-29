@@ -700,6 +700,28 @@ h2::after {
     }
 }
 
+/* Loading Spinner Animation */
+.loading-spinner {
+    display: inline-block;
+    animation: spinIcon 2s linear infinite;
+}
+
+@keyframes spinIcon {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+    50% {
+        transform: rotate(180deg) scale(1.1);
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
+}
+
+.loading-container {
+    animation: pulse 2s ease-in-out infinite;
+}
+
 .project-card:hover .project-image img {
     transform: scale(1.1);
 }
