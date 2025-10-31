@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2025-10-31T03:03:49.524Z",
-  "totalGames": 7,
+  "lastUpdated": "2025-10-31T18:12:15.073Z",
+  "totalGames": 8,
   "games": [
     {
       "id": 3965470,
@@ -52,32 +52,6 @@
       "published": true,
       "publishedAt": "2025-09-27 18:48:18",
       "createdAt": "2025-09-27 18:37:48",
-      "minPrice": 0
-    },
-    {
-      "id": 3973990,
-      "title": "Last Jack",
-      "description": "Roll, leap, shine and survive through the static world.",
-      "url": "https://calippooo.itch.io/last-jack",
-      "coverUrl": "https://img.itch.zone/aW1nLzIzNjk5MzM5LnBuZw==/315x250%23c/cFzZf3.png",
-      "category": "prototype",
-      "technologies": [
-        "Unity",
-        "C#"
-      ],
-      "platforms": {
-        "windows": false,
-        "mac": false,
-        "linux": false,
-        "android": false
-      },
-      "stats": {
-        "downloads": 0,
-        "views": 34
-      },
-      "published": true,
-      "publishedAt": "2025-10-20 13:25:26",
-      "createdAt": "2025-10-20 13:03:06",
       "minPrice": 0
     },
     {
@@ -182,6 +156,58 @@
       "published": true,
       "publishedAt": "2025-09-28 21:56:46",
       "createdAt": "2025-09-28 21:54:57",
+      "minPrice": 0
+    },
+    {
+      "id": 3973990,
+      "title": "The Last Jack",
+      "description": "Roll, leap, shine and survive through the static world.",
+      "url": "https://calippooo.itch.io/the-last-jack",
+      "coverUrl": "https://img.itch.zone/aW1nLzIzNjk5MzM5LnBuZw==/315x250%23c/cFzZf3.png",
+      "category": "prototype",
+      "technologies": [
+        "Unity",
+        "C#"
+      ],
+      "platforms": {
+        "windows": false,
+        "mac": false,
+        "linux": false,
+        "android": false
+      },
+      "stats": {
+        "downloads": 0,
+        "views": 34
+      },
+      "published": true,
+      "publishedAt": "2025-10-20 13:25:26",
+      "createdAt": "2025-10-20 13:03:06",
+      "minPrice": 0
+    },
+    {
+      "id": 3997400,
+      "title": "Tilevania",
+      "description": "No description available",
+      "url": "https://calippooo.itch.io/tilevania",
+      "coverUrl": "https://img.itch.zone/aW1nLzIzODc3OTUzLnBuZw==/315x250%23c/mNxD5Y.png",
+      "category": "prototype",
+      "technologies": [
+        "Unity",
+        "C#"
+      ],
+      "platforms": {
+        "windows": false,
+        "mac": false,
+        "linux": false,
+        "android": false
+      },
+      "stats": {
+        "downloads": 0,
+        "views": 0
+      },
+      "published": true,
+      "publishedAt": "2025-10-31 18:11:16",
+      "createdAt": "2025-10-29 12:00:09",
       "minPrice": 0
     }
   ]
