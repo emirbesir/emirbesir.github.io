@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-11-06T03:06:36.904Z",
+  "lastUpdated": "2025-11-07T03:04:00.731Z",
   "totalGames": 8,
   "games": [
     {
@@ -21,7 +21,7 @@
       },
       "stats": {
         "downloads": 0,
-        "views": 23
+        "views": 25
       },
       "published": true,
       "publishedAt": "2025-10-17 02:57:44",
@@ -99,7 +99,7 @@
       },
       "stats": {
         "downloads": 0,
-        "views": 7
+        "views": 8
       },
       "published": true,
       "publishedAt": "2025-10-17 02:08:16",
@@ -177,7 +177,7 @@
       },
       "stats": {
         "downloads": 0,
-        "views": 62
+        "views": 64
       },
       "published": true,
       "publishedAt": "2025-10-20 13:25:26",
@@ -203,7 +203,7 @@
       },
       "stats": {
         "downloads": 0,
-        "views": 24
+        "views": 25
       },
       "published": true,
       "publishedAt": "2025-10-31 18:11:16",
