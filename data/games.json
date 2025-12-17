@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-12-16T03:15:48.396Z",
+  "lastUpdated": "2025-12-17T03:12:32.382Z",
   "totalGames": 8,
   "games": [
     {
@@ -21,7 +21,7 @@
       },
       "stats": {
         "downloads": 0,
-        "views": 31
+        "views": 32
       },
       "published": true,
       "publishedAt": "2025-10-17 02:57:44",
@@ -151,7 +151,7 @@
       },
       "stats": {
         "downloads": 0,
-        "views": 11
+        "views": 12
       },
       "published": true,
       "publishedAt": "2025-09-28 21:56:46",
