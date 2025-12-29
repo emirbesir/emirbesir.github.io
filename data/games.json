@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2025-12-28T03:28:06.552Z",
-  "totalGames": 8,
+  "lastUpdated": "2025-12-29T03:28:26.565Z",
+  "totalGames": 9,
   "games": [
     {
       "id": 3965470,
@@ -52,6 +52,32 @@
       "published": true,
       "publishedAt": "2025-09-27 18:48:18",
       "createdAt": "2025-09-27 18:37:48",
+      "minPrice": 0
+    },
+    {
+      "id": 4152761,
+      "title": "Less is More",
+      "description": "No description available",
+      "url": "https://calippooo.itch.io/less-is-more",
+      "coverUrl": "https://img.itch.zone/aW1nLzI0NzUwMjc4LnBuZw==/315x250%23c/Bi22Ez.png",
+      "category": "prototype",
+      "technologies": [
+        "Unity",
+        "C#"
+      ],
+      "platforms": {
+        "windows": true,
+        "mac": false,
+        "linux": true,
+        "android": true
+      },
+      "stats": {
+        "downloads": 8,
+        "views": 34
+      },
+      "published": true,
+      "publishedAt": "2025-12-28 04:04:40",
+      "createdAt": "2025-12-28 02:49:45",
       "minPrice": 0
     },
     {
