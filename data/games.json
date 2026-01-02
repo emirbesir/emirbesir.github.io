@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-01-01T03:29:27.290Z",
+  "lastUpdated": "2026-01-02T03:21:44.760Z",
   "totalGames": 9,
   "games": [
     {
@@ -72,8 +72,8 @@
         "android": true
       },
       "stats": {
-        "downloads": 16,
-        "views": 55
+        "downloads": 17,
+        "views": 60
       },
       "published": true,
       "publishedAt": "2025-12-28 04:04:40",
