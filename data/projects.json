@@ -1,0 +1,71 @@
+[
+  {
+    "id": "project-001",
+    "title": "Less is More",
+    "description": "BTK Akademi İleri Seviye Unity Bootcamp'ın jaminde geliştirdiğimiz 1.lik ödülü alan oyundur.",
+    "thumbnail": "assets/images/less_is_more_thumb.jpg",
+    "tags": [
+      "2D",
+      "Platformer",
+      "Mobile",
+      "PC"
+    ],
+    "links": {
+      "play": "https://calippooo.itch.io/less-is-more",
+      "code": "https://github.com/emirbesir/null-btk-jam",
+      "video": "https://www.youtube.com/watch?v=4ptHAemZCW4"
+    },
+    "featured": true
+  },
+  {
+    "id": "project-002",
+    "title": "Raze Maze",
+    "description": "StartGate'25 Jaminde geliştirdiğimiz ilk 20 proje arasına seçilen oyundur.",
+    "thumbnail": "assets/images/raze_maze_thumb.jpg",
+    "tags": [
+      "3D",
+      "Puzzle",
+      "Platformer",
+      "PC"
+    ],
+    "links": {
+      "play": "https://calippooo.itch.io/raze-maze",
+      "code": "https://github.com/emirbesir/startgate-jam-2025-null",
+      "video": "https://www.youtube.com/watch?v=SFIbsuxqi8E"
+    },
+    "featured": true
+  },
+  {
+    "id": "project-003",
+    "title": "The Last Jack",
+    "description": "Gamedev.tv Ekim 2025 Jaminde tek başıma geliştirdiğim en iyi mekanikler dalında ilk 10 proje arasına seçilen oyundur.",
+    "thumbnail": "assets/images/the_last_jack_thumb.jpg",
+    "tags": [
+      "3D",
+      "Platformer",
+      "PC"
+    ],
+    "links": {
+      "play": "https://calippooo.itch.io/the-last-jack",
+      "code": "https://github.com/emirbesir/the-last-jack"
+    },
+    "featured": true
+  },
+  {
+    "id": "project-004",
+    "title": "Collapsed Universe",
+    "description": "Google Yapay Zeka ve Teknoloji Akademisinin 2025 Game Jam'i için 3 günde geliştirdiğimiz oyundur.",
+    "thumbnail": "assets/images/collapsed_universe_thumb.jpg",
+    "tags": [
+      "2D",
+      "Platformer",
+      "PC"
+    ],
+    "links": {
+      "play": "https://calippooo.itch.io/collapsed-universe",
+      "code": "https://github.com/emirbesir/collapsed-universe",
+      "video": "https://www.youtube.com/watch?v=8obRY19qgFE"
+    },
+    "featured": true
+  }
+]
