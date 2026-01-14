@@ -23,6 +23,17 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- Prevent theme flash -->
+    <script>
+        (function () {
+            const saved = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (saved === 'light' || (!saved && !prefersDark)) {
+                document.documentElement.classList.add('light-theme');
+            }
+        })();
+    </script>
 </head>
 
 <body>
@@ -33,10 +44,6 @@
                 <span class="logo-bracket">&lt;</span>DEV<span class="logo-bracket">/&gt;</span>
             </a>
 
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-                <span class="hamburger"></span>
-            </button>
-
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#home" class="nav-link">Ana Sayfa</a></li>
                 <li><a href="#about" class="nav-link">Hakkımda</a></li>
@@ -44,16 +51,24 @@
                 <li><a href="#contact" class="nav-link">İletişim</a></li>
             </ul>
 
-            <div class="nav-social">
-                <a href="https://github.com/emirbesir/" target="_blank" rel="noopener" aria-label="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://linkedin.com/in/emirbesir/" target="_blank" rel="noopener" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="https://calippooo.itch.io" target="_blank" rel="noopener" aria-label="Itch.io">
-                    <i class="fab fa-itch-io"></i>
-                </a>
+            <div class="nav-actions">
+                <div class="nav-social">
+                    <a href="https://github.com/emirbesir/" target="_blank" rel="noopener" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/emirbesir/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://calippooo.itch.io" target="_blank" rel="noopener" aria-label="Itch.io">
+                        <i class="fab fa-itch-io"></i>
+                    </a>
+                </div>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                    <span class="hamburger"></span>
+                </button>
             </div>
         </div>
     </nav>

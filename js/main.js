@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initNavigation();
     initSmoothScroll();
     initScrollAnimations();
+    initThemeToggle();
     fetchProjects();
 });
 
@@ -196,4 +197,42 @@ function renderProjectsError() {
             <p>Unable to load projects. Please try again later.</p>
         </div>
     `;
+}
+
+/**
+ * Theme toggle functionality
+ */
+function initThemeToggle() {
+    const toggle = document.getElementById('themeToggle');
+    const icon = toggle.querySelector('i');
+
+    // Update icon based on current theme
+    function updateIcon() {
+        const isLight = document.documentElement.classList.contains('light-theme');
+        icon.className = isLight ? 'fas fa-sun' : 'fas fa-moon';
+    }
+
+    // Initialize icon on load
+    updateIcon();
+
+    // Handle toggle click
+    toggle.addEventListener('click', () => {
+        // Add transition class for smooth animation
+        document.body.classList.add('theme-transitioning');
+
+        // Toggle theme
+        document.documentElement.classList.toggle('light-theme');
+
+        // Save preference
+        const isLight = document.documentElement.classList.contains('light-theme');
+        localStorage.setItem('theme', isLight ? 'light' : 'dark');
+
+        // Update icon
+        updateIcon();
+
+        // Remove transition class after animation
+        setTimeout(() => {
+            document.body.classList.remove('theme-transitioning');
+        }, 300);
+    });
 }
