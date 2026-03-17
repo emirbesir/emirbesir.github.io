@@ -24,7 +24,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="css/style.css">
 
-    <!-- Prevent theme flash -->
+    <!-- Prevent theme & language flash -->
     <script>
         (function () {
             const saved = localStorage.getItem('theme');
@@ -32,6 +32,8 @@
             if (saved === 'light' || (!saved && !prefersDark)) {
                 document.documentElement.classList.add('light-theme');
             }
+            const lang = localStorage.getItem('lang') || 'en';
+            document.documentElement.lang = lang;
         })();
     </script>
 </head>
@@ -45,10 +47,10 @@
             </a>
 
             <ul class="nav-menu" id="navMenu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#home" class="nav-link" data-i18n="nav.home">Home</a></li>
+                <li><a href="#about" class="nav-link" data-i18n="nav.about">About</a></li>
+                <li><a href="#projects" class="nav-link" data-i18n="nav.projects">Projects</a></li>
+                <li><a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a></li>
             </ul>
 
             <div class="nav-actions">
@@ -63,6 +65,9 @@
                         <i class="fab fa-itch-io"></i>
                     </a>
                 </div>
+                <button class="lang-toggle" id="langToggle" aria-label="Switch language">
+                    <span class="lang-label">TR</span>
+                </button>
                 <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
                     <i class="fas fa-moon"></i>
                 </button>
@@ -80,15 +85,15 @@
             <div class="hero-glow"></div>
         </div>
         <div class="hero-content">
-            <p class="hero-greeting">Hi, I'm</p>
+            <p class="hero-greeting" data-i18n="hero.greeting">Hi, I'm</p>
             <h1 class="hero-title">Emir Beşir</h1>
             <p class="hero-subtitle">
-                <span class="typing-text">Unity Game Developer</span>
+                <span class="typing-text" data-i18n="hero.subtitle">Unity Game Developer</span>
                 <span class="cursor">|</span>
             </p>
             <a href="#projects" class="btn btn-primary">
                 <i class="fas fa-gamepad"></i>
-                See My Games
+                <span data-i18n="hero.cta">See My Games</span>
             </a>
         </div>
         <div class="hero-scroll">
@@ -102,26 +107,26 @@
     <section class="about" id="about">
         <div class="container">
             <h2 class="section-title">
-                <span class="title-decorator">//</span> About
+                <span class="title-decorator">//</span> <span data-i18n="about.title">About</span>
             </h2>
 
             <div class="about-content">
                 <div class="about-text">
-                    <p class="about-bio">
+                    <p class="about-bio" data-i18n="about.bio1">
                         Software engineering intern at Arvis Games, building gameplay systems for mobile.
                         Placed in 3 game jams.
                     </p>
-                    <p class="about-bio">
+                    <p class="about-bio" data-i18n="about.bio2">
                         Previously taught Unity to 35 students at Kodland.
                     </p>
-                    <a href="assets/Emir_Beşir_CV.pdf" class="btn btn-secondary" target="_blank">
+                    <a href="assets/Emir_Besir_CV_EN.pdf" id="cvLink" class="btn btn-secondary" target="_blank">
                         <i class="fas fa-file-alt"></i>
-                        Download CV
+                        <span data-i18n="about.cv">Download CV</span>
                     </a>
                 </div>
 
                 <div class="tech-stack">
-                    <h3 class="tech-title">Technologies</h3>
+                    <h3 class="tech-title" data-i18n="about.tech">Technologies</h3>
                     <div class="tech-grid">
                         <div class="tech-item" data-tooltip="Unity Engine">
                             <i class="fab fa-unity"></i>
@@ -157,9 +162,9 @@
     <section class="projects" id="projects">
         <div class="container">
             <h2 class="section-title">
-                <span class="title-decorator">//</span> My Games
+                <span class="title-decorator">//</span> <span data-i18n="projects.title">My Games</span>
             </h2>
-            <p class="section-subtitle">Projects I've built</p>
+            <p class="section-subtitle" data-i18n="projects.subtitle">Projects I've built</p>
 
             <div class="projects-grid" id="projects-grid">
                 <!-- Project cards will be dynamically inserted here by JavaScript -->
@@ -171,14 +176,14 @@
     <section class="contact" id="contact">
         <div class="container">
             <h2 class="section-title">
-                <span class="title-decorator">//</span> Contact
+                <span class="title-decorator">//</span> <span data-i18n="contact.title">Contact</span>
             </h2>
-            <p class="section-subtitle">Want to work together? Let's talk!</p>
+            <p class="section-subtitle" data-i18n="contact.subtitle">Want to work together? Let's talk!</p>
 
             <div class="contact-content">
                 <a href="mailto:emirbesirx@gmail.com" class="btn btn-primary btn-large">
                     <i class="fas fa-envelope"></i>
-                    Send Email
+                    <span data-i18n="contact.cta">Send Email</span>
                 </a>
 
                 <div class="contact-social">

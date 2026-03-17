@@ -1,15 +1,38 @@
 /**
  * Unity Developer Portfolio - Main JavaScript
- * Handles JSON fetching, dynamic rendering, and UI interactions
+ * Handles JSON fetching, dynamic rendering, i18n, and UI interactions
  */
 
-document.addEventListener('DOMContentLoaded', () => {
+let translations = {};
+
+document.addEventListener('DOMContentLoaded', async () => {
+    await fetchTranslations();
     initNavigation();
     initSmoothScroll();
     initScrollAnimations();
     initThemeToggle();
+    initLanguageToggle();
     fetchProjects();
 });
+
+/**
+ * Fetch translations from config file
+ */
+async function fetchTranslations() {
+    try {
+        const response = await fetch('data/translations.json');
+        translations = await response.json();
+    } catch (error) {
+        console.error('Error loading translations:', error);
+    }
+}
+
+/**
+ * Get current language
+ */
+function getCurrentLang() {
+    return localStorage.getItem('lang') || 'en';
+}
 
 /**
  * Navigation functionality
@@ -109,6 +132,7 @@ async function fetchProjects() {
  */
 function renderProjects(projects) {
     const grid = document.getElementById('projects-grid');
+    grid.innerHTML = '';
 
     projects.forEach((project, index) => {
         const card = createProjectCard(project, index);
@@ -141,6 +165,13 @@ function createProjectCard(project, index) {
         card.classList.add('featured');
     }
 
+    const lang = getCurrentLang();
+    const t = translations[lang] || {};
+    const description = lang === 'tr' && project.description_tr
+        ? project.description_tr
+        : project.description;
+    const featuredLabel = t['projects.featured'] || 'Featured';
+
     const tagsHTML = project.tags
         .map(tag => `<span class="project-tag">${tag}</span>`)
         .join('');
@@ -149,14 +180,14 @@ function createProjectCard(project, index) {
 
     card.innerHTML = `
         <div class="project-image">
-            <img src="${project.thumbnail}" alt="${project.title} thumbnail" 
+            <img src="${project.thumbnail}" alt="${project.title} thumbnail"
                  onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 225%22><rect fill=%22%231a1a2e%22 width=%22400%22 height=%22225%22/><text x=%22200%22 y=%22120%22 fill=%22%2300d4ff%22 font-family=%22sans-serif%22 font-size=%2220%22 text-anchor=%22middle%22>${project.title}</text></svg>'">
-            ${project.featured ? '<span class="featured-badge"><i class="fas fa-star"></i> Featured</span>' : ''}
+            ${project.featured ? `<span class="featured-badge"><i class="fas fa-star"></i> ${featuredLabel}</span>` : ''}
         </div>
         <div class="project-content">
             <div class="project-tags">${tagsHTML}</div>
             <h3 class="project-title">${project.title}</h3>
-            <p class="project-description">${project.description}</p>
+            <p class="project-description">${description}</p>
             <div class="project-links">${linksHTML}</div>
         </div>
     `;
@@ -168,16 +199,19 @@ function createProjectCard(project, index) {
  * Generate link buttons for a project
  */
 function generateProjectLinks(links) {
+    const lang = getCurrentLang();
+    const t = translations[lang] || {};
+
     const linkConfigs = [
-        { key: 'play', icon: 'fas fa-play', label: 'Play' },
-        { key: 'code', icon: 'fab fa-github', label: 'Code' },
+        { key: 'play', icon: 'fas fa-play', label: t['projects.play'] || 'Play' },
+        { key: 'code', icon: 'fab fa-github', label: t['projects.code'] || 'Code' },
         { key: 'video', icon: 'fab fa-youtube', label: 'Video' }
     ];
 
     return linkConfigs
         .filter(config => links[config.key])
         .map(config => `
-            <a href="${links[config.key]}" target="_blank" rel="noopener" 
+            <a href="${links[config.key]}" target="_blank" rel="noopener"
                class="project-link project-link--${config.key}">
                 <i class="${config.icon}"></i>
                 <span>${config.label}</span>
@@ -234,5 +268,52 @@ function initThemeToggle() {
         setTimeout(() => {
             document.body.classList.remove('theme-transitioning');
         }, 300);
+    });
+}
+
+/**
+ * Language toggle functionality
+ */
+function initLanguageToggle() {
+    const toggle = document.getElementById('langToggle');
+    const label = toggle.querySelector('.lang-label');
+
+    function updateLabel() {
+        // Show the OTHER language (what you'd switch to)
+        label.textContent = getCurrentLang() === 'en' ? 'TR' : 'EN';
+    }
+
+    function applyTranslations(lang) {
+        document.documentElement.lang = lang;
+        const t = translations[lang];
+        if (!t) return;
+
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (t[key]) el.textContent = t[key];
+        });
+
+        // Swap CV download link
+        const cvLink = document.getElementById('cvLink');
+        if (cvLink) {
+            cvLink.href = lang === 'tr'
+                ? 'assets/Emir_Beşir_CV.pdf'
+                : 'assets/Emir_Besir_CV_EN.pdf';
+        }
+    }
+
+    // Initialize
+    const lang = getCurrentLang();
+    applyTranslations(lang);
+    updateLabel();
+
+    // Handle toggle click
+    toggle.addEventListener('click', () => {
+        const newLang = getCurrentLang() === 'en' ? 'tr' : 'en';
+        localStorage.setItem('lang', newLang);
+        applyTranslations(newLang);
+        updateLabel();
+        // Re-render projects with new language descriptions
+        fetchProjects();
     });
 }

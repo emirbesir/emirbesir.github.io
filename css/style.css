@@ -252,6 +252,33 @@ section.visible {
 }
 
 /* Theme Toggle */
+.lang-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.lang-toggle:hover {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 15px var(--color-glow);
+    transform: scale(1.1);
+}
+
+.lang-label {
+    font-family: var(--font-heading);
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    letter-spacing: 0.5px;
+}
+
 .theme-toggle {
     display: flex;
     align-items: center;

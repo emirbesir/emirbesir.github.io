@@ -3,6 +3,7 @@
     "id": "project-001",
     "title": "Less is More",
     "description": "1st place game at the BTK Academy Advanced Unity Bootcamp jam.",
+    "description_tr": "BTK Akademi İleri Seviye Unity Bootcamp'ın jaminde geliştirdiğimiz 1.lik ödülü alan oyun.",
     "thumbnail": "assets/images/less_is_more_thumb.jpg",
     "tags": [
       "2D",
@@ -22,6 +23,7 @@
     "id": "project-002",
     "title": "Raze Maze",
     "description": "Top 20 out of 255 teams at StartGate Jam 2025.",
+    "description_tr": "StartGate Jam 2025'te 255 takım arasından ilk 20'ye seçilen oyun.",
     "thumbnail": "assets/images/raze_maze_thumb.jpg",
     "tags": [
       "3D",
@@ -41,6 +43,7 @@
     "id": "project-003",
     "title": "The Last Jack",
     "description": "#10 in Mechanics out of 286 entries at Gamedev.tv Halloween Jam 2025. (Solo)",
+    "description_tr": "Gamedev.tv Halloween Jam 2025'te tek başıma geliştirdiğim, 286 proje arasından Mekanik dalında #10 seçilen oyun.",
     "thumbnail": "assets/images/the_last_jack_thumb.jpg",
     "tags": [
       "3D",
@@ -58,6 +61,7 @@
     "id": "project-004",
     "title": "Collapsed Universe",
     "description": "Built in 3 days for the Google AI & Technology Academy 2025 Game Jam.",
+    "description_tr": "Google Yapay Zeka ve Teknoloji Akademisinin 2025 Game Jam'i için 3 günde geliştirdiğimiz oyun.",
     "thumbnail": "assets/images/collapsed_universe_thumb.jpg",
     "tags": [
       "2D",
@@ -76,6 +80,7 @@
     "id": "project-005",
     "title": "Unity Folder Structure Generator",
     "description": "Unity Editor tool that generates organized folder structures from configurable templates.",
+    "description_tr": "Yapılandırılabilir şablonlarla otomatik klasör yapısı oluşturan Unity Editor aracı.",
     "thumbnail": "assets/images/unity_folder_generator_thumb.jpg",
     "tags": [
       "Editor Tool",
@@ -92,6 +97,7 @@
     "id": "project-006",
     "title": "Goblin's Gold Mine",
     "description": "Arcade-idle game where you manage a mine as a greedy boss goblin. (Work in Progress)",
+    "description_tr": "Açgözlü bir goblin patron olarak madeni yönettiğiniz arcade-idle oyun. (Yapım aşamasında)",
     "thumbnail": "assets/images/goblin_gold_mine_thumb.jpg",
     "tags": [
       "Idle",
