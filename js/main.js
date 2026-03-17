@@ -151,7 +151,7 @@ function createProjectCard(project, index) {
         <div class="project-image">
             <img src="${project.thumbnail}" alt="${project.title} thumbnail" 
                  onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 225%22><rect fill=%22%231a1a2e%22 width=%22400%22 height=%22225%22/><text x=%22200%22 y=%22120%22 fill=%22%2300d4ff%22 font-family=%22sans-serif%22 font-size=%2220%22 text-anchor=%22middle%22>${project.title}</text></svg>'">
-            ${project.featured ? '<span class="featured-badge"><i class="fas fa-star"></i> Öne Çıkarılan</span>' : ''}
+            ${project.featured ? '<span class="featured-badge"><i class="fas fa-star"></i> Featured</span>' : ''}
         </div>
         <div class="project-content">
             <div class="project-tags">${tagsHTML}</div>
@@ -169,8 +169,8 @@ function createProjectCard(project, index) {
  */
 function generateProjectLinks(links) {
     const linkConfigs = [
-        { key: 'play', icon: 'fas fa-play', label: 'Oyna' },
-        { key: 'code', icon: 'fab fa-github', label: 'Kod' },
+        { key: 'play', icon: 'fas fa-play', label: 'Play' },
+        { key: 'code', icon: 'fab fa-github', label: 'Code' },
         { key: 'video', icon: 'fab fa-youtube', label: 'Video' }
     ];
 

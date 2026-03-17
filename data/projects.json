@@ -2,7 +2,7 @@
   {
     "id": "project-001",
     "title": "Less is More",
-    "description": "BTK Akademi İleri Seviye Unity Bootcamp'ın jaminde geliştirdiğimiz 1.lik ödülü alan oyundur.",
+    "description": "1st place game at the BTK Academy Advanced Unity Bootcamp jam.",
     "thumbnail": "assets/images/less_is_more_thumb.jpg",
     "tags": [
       "2D",
@@ -10,9 +10,10 @@
       "Mobile",
       "PC"
     ],
+    "category": "Game",
     "links": {
       "play": "https://calippooo.itch.io/less-is-more",
-      "code": "https://github.com/emirbesir/null-btk-jam",
+      "code": "https://github.com/emirbesir/less-is-more",
       "video": "https://www.youtube.com/watch?v=4ptHAemZCW4"
     },
     "featured": true
@@ -20,7 +21,7 @@
   {
     "id": "project-002",
     "title": "Raze Maze",
-    "description": "StartGate'25 Jaminde geliştirdiğimiz ilk 20 proje arasına seçilen oyundur.",
+    "description": "Top 20 out of 255 teams at StartGate Jam 2025.",
     "thumbnail": "assets/images/raze_maze_thumb.jpg",
     "tags": [
       "3D",
@@ -28,9 +29,10 @@
       "Platformer",
       "PC"
     ],
+    "category": "Game",
     "links": {
       "play": "https://calippooo.itch.io/raze-maze",
-      "code": "https://github.com/emirbesir/startgate-jam-2025-null",
+      "code": "https://github.com/emirbesir/raze-maze",
       "video": "https://www.youtube.com/watch?v=SFIbsuxqi8E"
     },
     "featured": true
@@ -38,13 +40,14 @@
   {
     "id": "project-003",
     "title": "The Last Jack",
-    "description": "Gamedev.tv Ekim 2025 Jaminde tek başıma geliştirdiğim en iyi mekanikler dalında ilk 10 proje arasına seçilen oyundur.",
+    "description": "#10 in Mechanics out of 286 entries at Gamedev.tv Halloween Jam 2025. (Solo)",
     "thumbnail": "assets/images/the_last_jack_thumb.jpg",
     "tags": [
       "3D",
       "Platformer",
       "PC"
     ],
+    "category": "Game",
     "links": {
       "play": "https://calippooo.itch.io/the-last-jack",
       "code": "https://github.com/emirbesir/the-last-jack"
@@ -54,17 +57,50 @@
   {
     "id": "project-004",
     "title": "Collapsed Universe",
-    "description": "Google Yapay Zeka ve Teknoloji Akademisinin 2025 Game Jam'i için 3 günde geliştirdiğimiz oyundur.",
+    "description": "Built in 3 days for the Google AI & Technology Academy 2025 Game Jam.",
     "thumbnail": "assets/images/collapsed_universe_thumb.jpg",
     "tags": [
       "2D",
       "Platformer",
       "PC"
     ],
+    "category": "Game",
     "links": {
       "play": "https://calippooo.itch.io/collapsed-universe",
       "code": "https://github.com/emirbesir/collapsed-universe",
       "video": "https://www.youtube.com/watch?v=8obRY19qgFE"
+    },
+    "featured": false
+  },
+  {
+    "id": "project-005",
+    "title": "Unity Folder Structure Generator",
+    "description": "Unity Editor tool that generates organized folder structures from configurable templates.",
+    "thumbnail": "assets/images/unity_folder_generator_thumb.jpg",
+    "tags": [
+      "Editor Tool",
+      "Unity",
+      "Open Source"
+    ],
+    "category": "Tool",
+    "links": {
+      "code": "https://github.com/emirbesir/unity-folder-generator"
+    },
+    "featured": false
+  },
+  {
+    "id": "project-006",
+    "title": "Goblin's Gold Mine",
+    "description": "Arcade-idle game where you manage a mine as a greedy boss goblin. (Work in Progress)",
+    "thumbnail": "assets/images/goblin_gold_mine_thumb.jpg",
+    "tags": [
+      "Idle",
+      "Arcade",
+      "Mobile"
+    ],
+    "category": "Game",
+    "links": {
+      "code": "https://github.com/emirbesir/goblin-gold-mine"
     },
     "featured": false
   }
