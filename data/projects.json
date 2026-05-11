@@ -1,113 +1,97 @@
 [
-  {
-    "id": "project-001",
-    "title": "Less is More",
-    "description": "1st place game at the BTK Academy Advanced Unity Bootcamp jam.",
-    "description_tr": "BTK Akademi İleri Seviye Unity Bootcamp'ın jaminde geliştirdiğimiz 1.lik ödülü alan oyun.",
-    "thumbnail": "assets/images/less_is_more_thumb.jpg",
-    "tags": [
-      "2D",
-      "Platformer",
-      "Mobile",
-      "PC"
-    ],
-    "category": "Game",
-    "links": {
-      "play": "https://calippooo.itch.io/less-is-more",
-      "code": "https://github.com/emirbesir/less-is-more",
-      "video": "https://www.youtube.com/watch?v=4ptHAemZCW4"
+    {
+        "id": "project-001",
+        "title": "Check and Defend",
+        "description": "A chess tower-defense where every wave randomly flips you between defender and attacker that we built for Yıldız Jam 2026.",
+        "description_tr": "Yıldız Jam 2026 için geliştirdiğimiz, her dalgada savunmacı ve saldırgan arasında rastgele geçiş yaptığınız bir satranç kule savunma oyunu.",
+        "thumbnail": "assets/images/check_and_defend_thumb.png",
+        "tags": [
+            "2D",
+            "Strategy",
+            "PC"
+        ],
+        "category": "Game",
+        "links": {
+            "play": "https://yunusturna.itch.io/checkanddefend",
+            "video": "https://www.youtube.com/watch?v=a3mRolhcuOs"
+        },
+        "featured": true
     },
-    "featured": true
-  },
-  {
-    "id": "project-002",
-    "title": "Raze Maze",
-    "description": "Top 20 out of 255 teams at StartGate Jam 2025.",
-    "description_tr": "StartGate Jam 2025'te 255 takım arasından ilk 20'ye seçilen oyun.",
-    "thumbnail": "assets/images/raze_maze_thumb.jpg",
-    "tags": [
-      "3D",
-      "Puzzle",
-      "Platformer",
-      "PC"
-    ],
-    "category": "Game",
-    "links": {
-      "play": "https://calippooo.itch.io/raze-maze",
-      "code": "https://github.com/emirbesir/raze-maze",
-      "video": "https://www.youtube.com/watch?v=SFIbsuxqi8E"
+    {
+        "id": "project-002",
+        "title": "Less is More",
+        "description": "A 2D platformer built over 24 hours for the BTK Akademi Advanced Unity Bootcamp Game Jam, where every death leaves your corpse in the scene as a solid, persistent platform. Won 1st place.",
+        "description_tr": "BTK Akademi İleri Seviye Unity Bootcamp Game Jam için 24 saat içinde geliştirdiğimiz, her ölümünüzün cesedinizi sahnede kalıcı bir platform olarak bıraktığı bir 2D platform oyunu. 1.lik ödülü kazandık.",
+        "thumbnail": "assets/images/less_is_more_thumb.jpg",
+        "tags": [
+            "2D",
+            "Platformer",
+            "Mobile",
+            "PC"
+        ],
+        "category": "Game",
+        "links": {
+            "play": "https://calippooo.itch.io/less-is-more",
+            "code": "https://github.com/emirbesir/less-is-more",
+            "video": "https://www.youtube.com/watch?v=4ptHAemZCW4"
+        },
+        "featured": true
     },
-    "featured": true
-  },
-  {
-    "id": "project-003",
-    "title": "The Last Jack",
-    "description": "#10 in Mechanics out of 286 entries at Gamedev.tv Halloween Jam 2025. (Solo)",
-    "description_tr": "Gamedev.tv Halloween Jam 2025'te tek başıma geliştirdiğim, 286 proje arasından Mekanik dalında #10 seçilen oyun.",
-    "thumbnail": "assets/images/the_last_jack_thumb.jpg",
-    "tags": [
-      "3D",
-      "Platformer",
-      "PC"
-    ],
-    "category": "Game",
-    "links": {
-      "play": "https://calippooo.itch.io/the-last-jack",
-      "code": "https://github.com/emirbesir/the-last-jack"
+    {
+        "id": "project-003",
+        "title": "Raze Maze",
+        "description": "A 3D puzzle-platformer built over 48 hours for StartGate Jam 2025, where you play as a rat in a pitch-black maze and use a sonar-like \"sniff\" ability to temporarily illuminate your surroundings. Placed in the top 20 out of 255 teams.",
+        "description_tr": "StartGate Jam 2025 için 48 saat içinde geliştirdiğimiz, tamamen karanlık bir labirentte fare olarak oynadığınız ve çevrenizi geçici olarak aydınlatmak için sonar benzeri bir \"koklama\" yeteneği kullandığınız bir 3D bulmaca-platform oyunu.255 takım arasından ilk 20'ye seçildik.",
+        "thumbnail": "assets/images/raze_maze_thumb.jpg",
+        "tags": [
+            "3D",
+            "Puzzle",
+            "Platformer",
+            "PC"
+        ],
+        "category": "Game",
+        "links": {
+            "play": "https://calippooo.itch.io/raze-maze",
+            "code": "https://github.com/emirbesir/raze-maze",
+            "video": "https://www.youtube.com/watch?v=SFIbsuxqi8E"
+        },
+        "featured": true
     },
-    "featured": true
-  },
-  {
-    "id": "project-004",
-    "title": "Collapsed Universe",
-    "description": "Built in 3 days for the Google AI & Technology Academy 2025 Game Jam.",
-    "description_tr": "Google Yapay Zeka ve Teknoloji Akademisinin 2025 Game Jam'i için 3 günde geliştirdiğimiz oyun.",
-    "thumbnail": "assets/images/collapsed_universe_thumb.jpg",
-    "tags": [
-      "2D",
-      "Platformer",
-      "PC"
-    ],
-    "category": "Game",
-    "links": {
-      "play": "https://calippooo.itch.io/collapsed-universe",
-      "code": "https://github.com/emirbesir/collapsed-universe",
-      "video": "https://www.youtube.com/watch?v=8obRY19qgFE"
+    {
+        "id": "project-004",
+        "title": "The Last Jack",
+        "description": "A solo-developed 3D platformer built for the GameDev.tv Halloween Jam 2025, where you manage a depleting flame to survive a haunted Halloween world. Placed #10 in the Mechanics category out of 286 entries.",
+        "description_tr": "GameDev.tv Cadılar Bayramı Jam 2025 için tek başıma geliştirdiğim, tükenen bir alevi yöneterek korkunç bir Cadılar Bayramı dünyasında hayatta kalmaya çalıştığınız bir 3D platform oyunu. 286 oyun arasından Mekanikler kategorisinde 10. oldum.",
+        "thumbnail": "assets/images/the_last_jack_thumb.jpg",
+        "tags": [
+            "3D",
+            "Platformer",
+            "PC"
+        ],
+        "category": "Game",
+        "links": {
+            "play": "https://calippooo.itch.io/the-last-jack",
+            "code": "https://github.com/emirbesir/the-last-jack"
+        },
+        "featured": false
     },
-    "featured": false
-  },
-  {
-    "id": "project-005",
-    "title": "Unity Folder Structure Generator",
-    "description": "Unity Editor tool that generates organized folder structures from configurable templates.",
-    "description_tr": "Yapılandırılabilir şablonlarla otomatik klasör yapısı oluşturan Unity Editor aracı.",
-    "thumbnail": "assets/images/unity_folder_generator_thumb.jpg",
-    "tags": [
-      "Editor Tool",
-      "Unity",
-      "Open Source"
-    ],
-    "category": "Tool",
-    "links": {
-      "code": "https://github.com/emirbesir/unity-folder-generator"
-    },
-    "featured": false
-  },
-  {
-    "id": "project-006",
-    "title": "Goblin's Gold Mine",
-    "description": "Arcade-idle game where you manage a mine as a greedy boss goblin. (Work in Progress)",
-    "description_tr": "Açgözlü bir goblin patron olarak madeni yönettiğiniz arcade-idle oyun. (Yapım aşamasında)",
-    "thumbnail": "assets/images/goblin_gold_mine_thumb.jpg",
-    "tags": [
-      "Idle",
-      "Arcade",
-      "Mobile"
-    ],
-    "category": "Game",
-    "links": {
-      "code": "https://github.com/emirbesir/goblin-gold-mine"
-    },
-    "featured": false
-  }
+    {
+        "id": "project-005",
+        "title": "Collapsed Universe",
+        "description": "A 2D platformer where you traverse between two parallel universes through portals. Built in 3 days for the Google AI & Technology Academy 2025 Game Jam.",
+        "description_tr": "Portallar aracılığıyla iki paralel evren arasında geçiş yaptığınız bir 2D platformer. Google Yapay Zeka ve Teknoloji Akademisinin 2025 Game Jam'i için 3 günde geliştirdiğimiz oyun.",
+        "thumbnail": "assets/images/collapsed_universe_thumb.jpg",
+        "tags": [
+            "2D",
+            "Platformer",
+            "PC"
+        ],
+        "category": "Game",
+        "links": {
+            "play": "https://calippooo.itch.io/collapsed-universe",
+            "code": "https://github.com/emirbesir/collapsed-universe",
+            "video": "https://www.youtube.com/watch?v=8obRY19qgFE"
+        },
+        "featured": false
+    }
 ]
