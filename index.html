@@ -1,213 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Unity Game Developer Portfolio — Games built with C# and Unity Engine">
-    <title>Emir Beşir | Unity Game Developer</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Emir Beşir — Unity Game Developer. Gameplay systems in C# & Unity, award-winning game-jam projects." />
+<link rel="icon" type="image/png" href="assets/favicon.png" />
+<title>Emir Beşir — Unity Game Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Sora:wght@400;500;600;700&family=Onest:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    /* dark defaults — overridden by JS from the active theme */
+    --bg: #0b0d13;
+    --bg-2: #10131c;
+    --card: #141824;
+    --card-2: #1a1f2e;
+    --border: rgba(255,255,255,0.09);
+    --border-strong: rgba(255,255,255,0.16);
+    --text: #eef0f6;
+    --muted: #98a0b3;
+    --faint: #5c6478;
+    --accent: #8b7cf6;
+    --accent-soft: rgba(139,124,246,0.14);
+    --accent-ink: #0b0d13;
+    --shadow: 0 24px 60px -20px rgba(0,0,0,0.6);
+    --font-display: "Space Grotesk", system-ui, sans-serif;
+    --font-body: "Hanken Grotesk", system-ui, sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, monospace;
+    --maxw: 1180px;
+  }
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="assets/favicon.png">
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    transition: background 0.4s ease, color 0.4s ease;
+    overflow-x: hidden;
+  }
+  ::selection { background: var(--accent); color: var(--accent-ink); }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+  h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height: 1.05; margin: 0; letter-spacing: -0.02em; }
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
-        rel="stylesheet">
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 32px; }
 
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  .mono { font-family: var(--font-mono); }
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .eyebrow .slashes { color: var(--faint); }
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="css/style.css">
+  /* scroll reveal */
+  .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.7s cubic-bezier(.2,.7,.2,1), transform 0.7s cubic-bezier(.2,.7,.2,1); }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    html { scroll-behavior: auto; }
+  }
 
-    <!-- Prevent theme & language flash -->
-    <script>
-        (function () {
-            const saved = localStorage.getItem('theme');
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            if (saved === 'light' || (!saved && !prefersDark)) {
-                document.documentElement.classList.add('light-theme');
-            }
-            const lang = localStorage.getItem('lang') || 'en';
-            document.documentElement.lang = lang;
-        })();
-    </script>
+  #root { min-height: 100vh; }
+
+  /* focus ring */
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+</style>
+<link rel="stylesheet" href="src/styles.css" />
 </head>
-
 <body>
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="#home" class="nav-logo">
-                <span class="logo-bracket">&lt;</span>DEV<span class="logo-bracket">/&gt;</span>
-            </a>
+  <div id="root"></div>
 
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="#home" class="nav-link" data-i18n="nav.home">Home</a></li>
-                <li><a href="#about" class="nav-link" data-i18n="nav.about">About</a></li>
-                <li><a href="#projects" class="nav-link" data-i18n="nav.projects">Projects</a></li>
-                <li><a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a></li>
-            </ul>
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 
-            <div class="nav-actions">
-                <div class="nav-social">
-                    <a href="https://github.com/emirbesir/" target="_blank" rel="noopener" aria-label="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://linkedin.com/in/emirbesir/" target="_blank" rel="noopener" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="https://calippooo.itch.io" target="_blank" rel="noopener" aria-label="Itch.io">
-                        <i class="fab fa-itch-io"></i>
-                    </a>
-                </div>
-                <button class="lang-toggle" id="langToggle" aria-label="Switch language">
-                    <span class="lang-label">TR</span>
-                </button>
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-                    <i class="fas fa-moon"></i>
-                </button>
-                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-                    <span class="hamburger"></span>
-                </button>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-bg">
-            <div class="hero-grid"></div>
-            <div class="hero-glow"></div>
-        </div>
-        <div class="hero-content">
-            <p class="hero-greeting" data-i18n="hero.greeting">Hi, I'm</p>
-            <h1 class="hero-title">Emir Beşir</h1>
-            <p class="hero-subtitle">
-                <span class="typing-text" data-i18n="hero.subtitle">and I'm a Unity Game Developer</span>
-                <span class="cursor">|</span>
-            </p>
-            <a href="#projects" class="btn btn-primary">
-                <i class="fas fa-gamepad"></i>
-                <span data-i18n="hero.cta">See My Games</span>
-            </a>
-        </div>
-        <div class="hero-scroll">
-            <a href="#about" aria-label="Go to About section">
-                <i class="fas fa-chevron-down"></i>
-            </a>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <h2 class="section-title">
-                <span class="title-decorator">//</span> <span data-i18n="about.title">About</span>
-            </h2>
-
-            <div class="about-content">
-                <div class="about-text">
-                    <p class="about-bio" data-i18n="about.bio1">
-                        Senior-year Software Engineering student at Istanbul Aydin University, currently interning as a
-                        Unity Game Developer at Arvis Games, where I work on gameplay systems in a mobile Unity project.
-                    </p>
-                    <a href="assets/Emir_Besir_CV_EN.pdf" id="cvLink" class="btn btn-secondary" target="_blank">
-                        <i class="fas fa-file-alt"></i>
-                        <span data-i18n="about.cv">Download CV</span>
-                    </a>
-                </div>
-
-                <div class="tech-stack">
-                    <h3 class="tech-title" data-i18n="about.tech">Technologies</h3>
-                    <div class="tech-grid">
-                        <div class="tech-item" data-tooltip="Unity Engine">
-                            <i class="fab fa-unity"></i>
-                            <span>Unity</span>
-                        </div>
-                        <div class="tech-item" data-tooltip="C# Programming">
-                            <i class="fas fa-code"></i>
-                            <span>C#</span>
-                        </div>
-                        <div class="tech-item" data-tooltip="Dependency Injection">
-                            <i class="fas fa-syringe"></i>
-                            <span>Zenject</span>
-                        </div>
-                        <div class="tech-item" data-tooltip="Animation Library">
-                            <i class="fas fa-film"></i>
-                            <span>DOTween</span>
-                        </div>
-                        <div class="tech-item" data-tooltip="Visual Shader Editing">
-                            <i class="fas fa-circle-nodes"></i>
-                            <span>Shader Graph</span>
-                        </div>
-                        <div class="tech-item" data-tooltip="Version Control">
-                            <i class="fab fa-git-alt"></i>
-                            <span>Git & GitHub</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section class="projects" id="projects">
-        <div class="container">
-            <h2 class="section-title">
-                <span class="title-decorator">//</span> <span data-i18n="projects.title">My Games</span>
-            </h2>
-            <p class="section-subtitle" data-i18n="projects.subtitle">Projects I've built</p>
-
-            <div class="projects-grid" id="projects-grid">
-                <!-- Project cards will be dynamically inserted here by JavaScript -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <h2 class="section-title">
-                <span class="title-decorator">//</span> <span data-i18n="contact.title">Contact</span>
-            </h2>
-            <p class="section-subtitle" data-i18n="contact.subtitle">Want to work together? Let's talk!</p>
-
-            <div class="contact-content">
-                <a href="mailto:emirbesirx@gmail.com" class="btn btn-primary btn-large">
-                    <i class="fas fa-envelope"></i>
-                    <span data-i18n="contact.cta">Send Email</span>
-                </a>
-
-                <div class="contact-social">
-                    <a href="https://github.com/emirbesir" target="_blank" rel="noopener" class="social-link">
-                        <i class="fab fa-github"></i>
-                        <span>GitHub</span>
-                    </a>
-                    <a href="https://linkedin.com/in/emirbesir" target="_blank" rel="noopener" class="social-link">
-                        <i class="fab fa-linkedin"></i>
-                        <span>LinkedIn</span>
-                    </a>
-                    <a href="https://calippooo.itch.io" target="_blank" rel="noopener" class="social-link">
-                        <i class="fab fa-itch-io"></i>
-                        <span>Itch.io</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 Emir Beşir.</p>
-        </div>
-    </footer>
-
-    <script src="js/main.js"></script>
+  <script type="text/babel" src="src/data.jsx"></script>
+  <script type="text/babel" src="src/sections.jsx"></script>
+  <script type="text/babel" src="src/app.jsx"></script>
 </body>
-
 </html>
