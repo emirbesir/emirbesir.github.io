@@ -221,7 +221,7 @@ const UI = {
             meta: [
                 { k: "Role", v: "Unity Game Developer (Intern)" },
                 { k: "Studio", v: "Arvis Games", accent: true },
-                { k: "Studying", v: "Software Eng. · Istanbul Aydın Uni." },
+                { k: "Education", v: "Software Eng. · Istanbul Aydın Uni." },
                 { k: "Based in", v: "İstanbul, Türkiye" },
                 { k: "Focus", v: "Gameplay systems · C# architecture · Clean Code" },
             ],
