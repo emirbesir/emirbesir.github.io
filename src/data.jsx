@@ -44,6 +44,32 @@ const TECH = [
 // Thumbnails live in assets/images (shared with the repo).
 const GAMES = [
     {
+        id: "ufc-ko",
+        title: "UFC: KO",
+        year: "2026",
+        tagline: {
+            en: `Create your fighter, master real UFC moves, and climb the leagues — live on the App Store.`,
+            tr: `Dövüşçünü yarat, gerçek UFC hareketlerinde ustalaş ve liglerde yüksel — App Store'da yayında.`,
+        },
+        description: {
+            en: `A licensed UFC fighting game for iOS, published by Rollic Games (Zynga) and built in Unity 6. On the team from the first week of development through launch: built the core combat engine, the Timeline-driven fight animation system, combat feel and knockout cinematics, and the meta game — move management, league progression, and the mid-fight Round Break system.`,
+            tr: `Rollic Games (Zynga) tarafından yayınlanan, Unity 6 ile geliştirilen lisanslı bir UFC dövüş oyunu. Geliştirmenin ilk haftasından lansmana kadar takımdaydım: combat engine, Timeline tabanlı dövüş animasyon sistemi, combat feel ve nakavt sinematikleri ile meta oyun — hareket yönetimi, lig sistemi ve raunt arası Round Break sistemi.`,
+        },
+        role: { en: "Gameplay & UI engineering", tr: "Oynanış ve UI geliştirme" },
+        genre: { en: "Sports / Fighting", tr: "Spor / Dövüş" },
+        team: "Arvis Games",
+        event: null,
+        platforms: ["iOS"],
+        status: "Released",
+        badge: null,
+        image: "assets/images/app_icon_ios.png",
+        link: "https://apps.apple.com/us/app/ufc-ko/id6781219228",
+        code: null,
+        trailer: null,
+        featured: true,
+        accentTag: { en: "Fighting", tr: "Dövüş" },
+    },
+    {
         id: "check-and-defend",
         title: "Check & Defend",
         year: "2026",
@@ -190,7 +216,7 @@ const UI = {
         about: {
             eyebrow: "About",
             title: ``,
-            p1: `I'm a senior-year <span class="hl">Software Engineering</span> student at Istanbul Aydın University, currently interning as a <span class="hl">Unity Game Developer at Arvis Games</span>, where I work on gameplay systems in a live mobile Unity project.`,
+            p1: `I'm a senior-year <span class="hl">Software Engineering</span> student at Istanbul Aydın University, currently interning as a <span class="hl">Unity Game Developer at Arvis Games</span>, where I work on gameplay systems in <span class="hl">UFC: KO</span>, a licensed UFC title for iOS published by Rollic Games.`,
             p2: ``,
             meta: [
                 { k: "Role", v: "Unity Game Developer (Intern)" },
@@ -207,6 +233,7 @@ const UI = {
             title: "Games I've built",
             lead: "",
             playItch: "Play on Itch.io",
+            playAppStore: "View on the App Store",
             watchTrailer: "Watch trailer",
             code: "Code",
             play: "Play",
@@ -236,7 +263,7 @@ const UI = {
         about: {
             eyebrow: "Hakkımda",
             title: ``,
-            p1: `İstanbul Aydın Üniversitesi <span class="hl">Yazılım Mühendisliği</span> bölümünde son sınıf öğrencisiyim; şu anda <span class="hl">Arvis Games'te Unity Oyun Geliştiricisi</span> olarak staj yapıyor, bir mobil Unity projesinde üzerinde çalışıyorum.`,
+            p1: `İstanbul Aydın Üniversitesi <span class="hl">Yazılım Mühendisliği</span> bölümünde son sınıf öğrencisiyim; şu anda <span class="hl">Arvis Games'te Unity Oyun Geliştiricisi</span> olarak staj yapıyor, Rollic Games tarafından yayınlanan lisanslı iOS oyunu <span class="hl">UFC: KO</span>'nun oynanış sistemleri üzerinde çalışıyorum.`,
             p2: ``,
             meta: [
                 { k: "Rol", v: "Unity Oyun Geliştiricisi (Stajyer)" },
@@ -253,6 +280,7 @@ const UI = {
             title: "Geliştirdiğim oyunlar",
             lead: "",
             playItch: "Itch.io'da oyna",
+            playAppStore: "App Store'da gör",
             watchTrailer: "Oynanışı izle",
             code: "Kod",
             play: "Oyna",
