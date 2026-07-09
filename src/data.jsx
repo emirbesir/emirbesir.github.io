@@ -45,15 +45,15 @@ const TECH = [
 const GAMES = [
     {
         id: "ufc-ko",
-        title: "UFC: KO",
+        title: "UFC: KO (Arvis Games)",
         year: "2026",
         tagline: {
-            en: `Create your fighter, master real UFC moves, and climb the leagues — live on the App Store.`,
-            tr: `Dövüşçünü yarat, gerçek UFC hareketlerinde ustalaş ve liglerde yüksel — App Store'da yayında.`,
+            en: `Create your fighter, master real UFC moves, and climb the leagues, live on the App Store.`,
+            tr: `Dövüşçünü yarat, gerçek UFC hareketlerinde ustalaş ve liglerde yüksel, App Store'da yayında.`,
         },
         description: {
-            en: `A licensed UFC fighting game for iOS, published by Rollic Games (Zynga) and built in Unity 6. On the team from the first week of development through launch: built the core combat engine, the Timeline-driven fight animation system, combat feel and knockout cinematics, and the meta game — move management, league progression, and the mid-fight Round Break system.`,
-            tr: `Rollic Games (Zynga) tarafından yayınlanan, Unity 6 ile geliştirilen lisanslı bir UFC dövüş oyunu. Geliştirmenin ilk haftasından lansmana kadar takımdaydım: combat engine, Timeline tabanlı dövüş animasyon sistemi, combat feel ve nakavt sinematikleri ile meta oyun — hareket yönetimi, lig sistemi ve raunt arası Round Break sistemi.`,
+            en: `A licensed UFC fighting game for iOS, published by Rollic Games and built in Unity 6. Built the core combat engine, the fight animation system, and helped develop the meta game, move management, league progression.`,
+            tr: `Rollic Games tarafından yayınlanan ve Unity 6 ile geliştirilen lisanslı bir UFC dövüş oyunu. Temel dövüş motorunu, dövüş animasyon sistemini geliştirdim ve meta oyun, hareket yönetimi ve lig ilerlemesini geliştirmeye yardımcı oldum.`,
         },
         role: { en: "Gameplay & UI engineering", tr: "Oynanış ve UI geliştirme" },
         genre: { en: "Sports / Fighting", tr: "Spor / Dövüş" },
@@ -216,17 +216,17 @@ const UI = {
         about: {
             eyebrow: "About",
             title: ``,
-            p1: `I'm a senior-year <span class="hl">Software Engineering</span> student at Istanbul Aydın University, currently interning as a <span class="hl">Unity Game Developer at Arvis Games</span>, where I work on gameplay systems in <span class="hl">UFC: KO</span>, a licensed UFC title for iOS published by Rollic Games.`,
-            p2: ``,
+            p1: `I'm a <span class="hl">Unity Game Developer Intern</span> at Arvis Games, working on the gameplay systems for the licensed iOS game <span class="hl">UFC: KO</span>, published by Rollic Games.`,
+            p2: `I graduated from Istanbul Aydın University's <span class="hl">Software Engineering</span> department with a 3.37 GPA.`,
             meta: [
                 { k: "Role", v: "Unity Game Developer (Intern)" },
                 { k: "Studio", v: "Arvis Games", accent: true },
-                { k: "Studying", v: "Software Eng. · Istanbul Aydın Univ." },
+                { k: "Studying", v: "Software Eng. · Istanbul Aydın Uni." },
                 { k: "Based in", v: "İstanbul, Türkiye" },
-                { k: "Focus", v: "Gameplay systems · C# architecture" },
+                { k: "Focus", v: "Gameplay systems · C# architecture · Clean Code" },
             ],
             stack: "~/ stack",
-            downloadCv: "Download CV",
+            downloadCv: "Download Résumé",
         },
         projects: {
             eyebrow: "Projects",
@@ -241,7 +241,7 @@ const UI = {
         },
         contact: {
             eyebrow: "Contact",
-            title: "Want to work together?",
+            title: "Want to get in touch?",
             lead: "I'm always up for a fun collaboration or a chat about game development.",
             cv: "Résumé",
         },
@@ -263,12 +263,12 @@ const UI = {
         about: {
             eyebrow: "Hakkımda",
             title: ``,
-            p1: `İstanbul Aydın Üniversitesi <span class="hl">Yazılım Mühendisliği</span> bölümünde son sınıf öğrencisiyim; şu anda <span class="hl">Arvis Games'te Unity Oyun Geliştiricisi</span> olarak staj yapıyor, Rollic Games tarafından yayınlanan lisanslı iOS oyunu <span class="hl">UFC: KO</span>'nun oynanış sistemleri üzerinde çalışıyorum.`,
-            p2: ``,
+            p1: `<span class="hl">Arvis Games'te Unity Oyun Geliştiricisi</span> olarak staj yapıyor, Rollic Games tarafından yayınlanan lisanslı iOS oyunu <span class="hl">UFC: KO</span>'nun oynanış sistemleri üzerinde çalışıyorum.`,
+            p2: `İstanbul Aydın Üniversitesi <span class="hl">Yazılım Mühendisliği</span> bölümünden 3.37 ortalama ile mezun oldum.`,
             meta: [
                 { k: "Rol", v: "Unity Oyun Geliştiricisi (Stajyer)" },
                 { k: "Stüdyo", v: "Arvis Games", accent: true },
-                { k: "Okul", v: "Yazılım Müh. - İstanbul Aydın Üniv." },
+                { k: "Okul", v: "Yazılım Müh. - İstanbul Aydın Üni." },
                 { k: "Konum", v: "İstanbul, Türkiye" },
                 { k: "Odak", v: "Oynanış sistemleri - C# mimarisi - Temiz Kod" },
             ],
@@ -288,7 +288,7 @@ const UI = {
         },
         contact: {
             eyebrow: "İletişim",
-            title: "Birlikte çalışmak ister misiniz?",
+            title: "İletişime geçmek ister misiniz?",
             lead: "Eğlenceli bir iş birliğine ya da oyun geliştirme sohbetine her zaman varım.",
             cv: "CV",
         },
