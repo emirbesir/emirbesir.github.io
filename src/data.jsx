@@ -53,7 +53,7 @@ const GAMES = [
         },
         description: {
             en: `A licensed UFC fighting game for iOS, published by Rollic Games and built in Unity 6. Built the core combat engine, the fight animation system, and helped develop the meta game, move management, league progression.`,
-            tr: `Rollic Games tarafından yayınlanan ve Unity 6 ile geliştirilen lisanslı bir UFC dövüş oyunu. Temel dövüş motorunu, dövüş animasyon sistemini geliştirdim ve meta oyun, hareket yönetimi ve lig ilerlemesini geliştirmeye yardımcı oldum.`,
+            tr: `Rollic Games tarafından yayınlanan ve Unity 6 ile geliştirilen lisanslı bir UFC dövüş oyunu. Temel dövüş motorunu ve dövüş animasyon sistemini geliştirdim; meta oyunun (move yönetimi, lig sistemi) geliştirilmesine yardımcı oldum.`,
         },
         role: { en: "Gameplay & UI engineering", tr: "Oynanış ve UI geliştirme" },
         genre: { en: "Sports / Fighting", tr: "Spor / Dövüş" },
