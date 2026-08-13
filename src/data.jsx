@@ -48,12 +48,12 @@ const GAMES = [
         title: "UFC: KO (Arvis Games)",
         year: "2026",
         tagline: {
-            en: `Create your fighter, master real UFC moves, and climb the leagues, live on the App Store.`,
-            tr: `Dövüşçünü yarat, gerçek UFC hareketlerinde ustalaş ve liglerde yüksel, App Store'da yayında.`,
+            en: `Create your fighter, master real UFC moves, and fight your way to the top, live on the App Store.`,
+            tr: `Dövüşçünü yarat, gerçek UFC hareketlerinde ustalaş ve dövüşerek zirveye çık, App Store'da yayında.`,
         },
         description: {
-            en: `A licensed UFC fighting game for iOS, published by Rollic Games and built in Unity 6. Built the core combat engine, the fight animation system, and helped develop the meta game, move management, league progression.`,
-            tr: `Rollic Games tarafından yayınlanan ve Unity 6 ile geliştirilen lisanslı bir UFC dövüş oyunu. Temel dövüş motorunu ve dövüş animasyon sistemini geliştirdim; meta oyunun (move yönetimi, lig sistemi) geliştirilmesine yardımcı oldum.`,
+            en: `A licensed UFC fighting game for iOS, published by Rollic Games and built in Unity 6. Built the core combat engine and the fight animation system, helped develop the meta game (move management, progression, reward flows), and extended the seeded simulator used for balancing.`,
+            tr: `Rollic Games tarafından yayınlanan ve Unity 6 ile geliştirilen lisanslı bir UFC dövüş oyunu. Temel dövüş motorunu ve dövüş animasyon sistemini geliştirdim; meta oyunun (move yönetimi, ilerleyiş, ödül akışları) geliştirilmesine yardımcı oldum ve balancing için kullanılan seeded simülatörü genişlettim.`,
         },
         role: { en: "Gameplay & UI engineering", tr: "Oynanış ve UI geliştirme" },
         genre: { en: "Sports / Fighting", tr: "Spor / Dövüş" },

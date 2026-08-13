@@ -1,5 +1,5 @@
 /* ============================================================
-   Portfolio — app root
+   Portfolio - app root
    ------------------------------------------------------------
    Look is locked to the chosen design (wall hero, Space +
    Hanken fonts, purple accent). Visitors can toggle dark/light
@@ -55,7 +55,7 @@ function writePref(key, value) {
   try { localStorage.setItem(key, value); } catch (e) { /* ignore */ }
 }
 
-/* scroll reveal — re-bind whenever content (language) changes */
+/* scroll reveal, re-bind whenever content (language) changes */
 function useReveal(dep) {
   useEffect(() => {
     const els = Array.from(document.querySelectorAll(".reveal"));

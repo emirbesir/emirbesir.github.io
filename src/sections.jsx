@@ -1,5 +1,5 @@
 /* ============================================================
-   Portfolio — section components
+   Portfolio - section components
    ------------------------------------------------------------
    Components receive a resolved `content` object (see
    resolveContent in data.jsx) so all copy follows the active
@@ -118,7 +118,7 @@ function Hero({ content, heroStyle }) {
                 <div className={twoCol ? "hero-two" : ""}>
                     <div className="hero-text">
                         {arcade
-                            ? <div className="arcade-credit">▸ INSERT COIN — PRESS START</div>
+                            ? <div className="arcade-credit">▸ INSERT COIN - PRESS START</div>
                             : <div className="hero-hi"><span className="wave">👋</span> {U.greeting}</div>}
                         <h1 className={"hero-name" + (arcade ? " arcade-title" : "")} data-text="Emir Beşir">Emir<br />Beşir</h1>
                         <div className="hero-role">
@@ -510,7 +510,7 @@ function ProjectCard({ g, ui }) {
             <div className="card-media">
                 <span className="card-tag">{g.accentTag}</span>
                 {g.badge && <span className="card-badge">🏆 {g.badge}</span>}
-                <img src={g.image} alt={g.title + " — game art"} loading="lazy" />
+                <img src={g.image} alt={g.title + " - game art"} loading="lazy" />
             </div>
             <div className="card-body">
                 <div className="card-meta-top">
