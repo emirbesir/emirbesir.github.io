@@ -45,29 +45,29 @@ const TECH = [
 const GAMES = [
     {
         id: "ufc-ko",
-        title: "UFC: KO (Arvis Games)",
+        title: "UFC: Manager (Arvis Games)",
         year: "2026",
         tagline: {
-            en: `Create your fighter, master real UFC moves, and fight your way to the top, live on the App Store.`,
-            tr: `Dövüşçünü yarat, gerçek UFC hareketlerinde ustalaş ve dövüşerek zirveye çık, App Store'da yayında.`,
+            en: `Build your UFC team, train your athletes, and fight your way to the top, live on the App Store.`,
+            tr: `UFC takımını kur, sporcularını çalıştır ve dövüşerek zirveye çık, App Store'da yayında.`,
         },
         description: {
-            en: `A licensed UFC fighting game for iOS, published by Rollic Games and built in Unity 6. Co-developed the core combat engine, built the fight animation system, helped develop the meta game (move management, progression, reward flows), and extended the seeded simulator used for balancing.`,
-            tr: `Rollic Games tarafından yayınlanan ve Unity 6 ile geliştirilen lisanslı bir UFC dövüş oyunu. Temel dövüş motorunun geliştirilmesinde birlikte çalıştım, dövüş animasyon sistemini geliştirdim; meta oyunun (move yönetimi, ilerleyiş, ödül akışları) geliştirilmesine yardımcı oldum ve balancing için kullanılan seeded simülatörü genişlettim.`,
+            en: `A licensed UFC management game for iOS, published by Rollic Games and built in Unity 6. Co-developed the core combat engine, built the fight animation system, helped develop the meta game (move management, progression, reward flows), and extended the seeded simulator used for balancing.`,
+            tr: `Rollic Games tarafından yayınlanan ve Unity 6 ile geliştirilen lisanslı bir UFC menajerlik oyunu. Temel dövüş motorunun geliştirilmesinde birlikte çalıştım, dövüş animasyon sistemini geliştirdim; meta oyunun (move yönetimi, ilerleyiş, ödül akışları) geliştirilmesine yardımcı oldum ve balancing için kullanılan seeded simülatörü genişlettim.`,
         },
         role: { en: "Gameplay & UI engineering", tr: "Oynanış ve UI geliştirme" },
-        genre: { en: "Sports / Fighting", tr: "Spor / Dövüş" },
+        genre: { en: "Sports / Management", tr: "Spor / Menajerlik" },
         team: "Arvis Games",
         event: null,
         platforms: ["iOS"],
         status: "Released",
         badge: null,
         image: "assets/images/app_icon_ios.png",
-        link: "https://apps.apple.com/us/app/ufc-ko/id6781219228",
+        link: "https://apps.apple.com/us/app/ufc-manager/id6781219228",
         code: null,
         trailer: null,
         featured: true,
-        accentTag: { en: "Fighting", tr: "Dövüş" },
+        accentTag: { en: "Management", tr: "Menajerlik" },
     },
     {
         id: "check-and-defend",
@@ -216,7 +216,7 @@ const UI = {
         about: {
             eyebrow: "About",
             title: ``,
-            p1: `I'm a <span class="hl">Unity Game Developer</span> at Arvis Games, working on the gameplay systems for the licensed iOS game <span class="hl">UFC: KO</span>, published by Rollic Games.`,
+            p1: `I'm a <span class="hl">Unity Game Developer</span> at Arvis Games, working on the gameplay systems for the licensed iOS game <span class="hl">UFC: Manager</span>, published by Rollic Games.`,
             p2: `I graduated from Istanbul Aydın University's <span class="hl">Software Engineering</span> department with a 3.37 GPA.`,
             meta: [
                 { k: "Role", v: "Unity Game Developer" },
@@ -263,7 +263,7 @@ const UI = {
         about: {
             eyebrow: "Hakkımda",
             title: ``,
-            p1: `<span class="hl">Arvis Games'te Unity Oyun Geliştiricisi</span> olarak, Rollic Games tarafından yayınlanan lisanslı iOS oyunu <span class="hl">UFC: KO</span>'nun oynanış sistemleri üzerinde çalışıyorum.`,
+            p1: `<span class="hl">Arvis Games'te Unity Oyun Geliştiricisi</span> olarak, Rollic Games tarafından yayınlanan lisanslı iOS oyunu <span class="hl">UFC: Manager</span>'ın oynanış sistemleri üzerinde çalışıyorum.`,
             p2: `İstanbul Aydın Üniversitesi <span class="hl">Yazılım Mühendisliği</span> bölümünden 3.37 ortalama ile mezun oldum.`,
             meta: [
                 { k: "Rol", v: "Unity Oyun Geliştiricisi" },
