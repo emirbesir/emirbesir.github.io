@@ -500,6 +500,60 @@ function About({ content }) {
 }
 
 /* ---------- PROJECTS ---------- */
+/* Phone-fan stage: two side phones behind, one centre phone in front that crossfades
+   through its screens (CSS keyframes only), app icon badge bottom-left. Used when a
+   game has a `screens` field; works for any number of centre screens.
+   Centre loop: screen 0 is the static base. Screens 1..n-2 fade in over the previous
+   one and drop once the next is fully in; the last one fades in, holds, then fades out
+   onto screen 0, so the frame never dips to the bezel colour. Keyframe percentages
+   depend on n, so they are generated for the screen count in the data. */
+const PHONE_SHOT_S = 3;     // seconds each centre screen stays up
+const PHONE_FADE_S = 0.5;   // crossfade length in seconds
+function phoneLoopCss(n) {
+    if (n < 2) return "";
+    const T = PHONE_SHOT_S, F = PHONE_FADE_S, D = n * T;
+    const pc = (s) => (s / D * 100).toFixed(3) + "%";
+    return (
+        `@keyframes phoneMid-${n}{0%{opacity:0}${pc(F)}{opacity:1}${pc(T + F)}{opacity:1}` +
+        `${pc(T + F + 0.01 * D / 100)}{opacity:0}100%{opacity:0}}` +
+        `@keyframes phoneLast-${n}{0%{opacity:0}${pc(F)}{opacity:1}${pc(T - F)}{opacity:1}` +
+        `${pc(T)}{opacity:0}100%{opacity:0}}`
+    );
+}
+
+function PhoneStage({ g }) {
+    const { side = [], center = [] } = g.screens;
+    const n = center.length;
+    return (
+        <div className="phone-stage" role="group" aria-label={g.title + " screenshots"}
+            style={{ "--n": n, "--shot": PHONE_SHOT_S + "s" }}>
+            {n > 1 && <style>{phoneLoopCss(n)}</style>}
+            <div className="phone-fan">
+                {side.slice(0, 2).map((src, i) => (
+                    <div className={"phone phone-side " + (i === 0 ? "phone-left" : "phone-right")} key={src}>
+                        <div className="phone-screen">
+                            <img src={src} alt={g.title + " screenshot"} loading="lazy" />
+                        </div>
+                    </div>
+                ))}
+                <div className="phone phone-center">
+                    <div className="phone-screen">
+                        {center.map((src, i) => (
+                            <img className="phone-shot" src={src} key={src}
+                                alt={g.title + " screenshot"} loading="lazy"
+                                style={i === 0 ? undefined : {
+                                    "--i": i,
+                                    "--anim": (i === n - 1 ? "phoneLast-" : "phoneMid-") + n,
+                                }} />
+                        ))}
+                    </div>
+                </div>
+            </div>
+            {g.icon && <img className="stage-icon" src={g.icon} alt={g.title + " app icon"} loading="lazy" />}
+        </div>
+    );
+}
+
 function ProjectCard({ g, ui }) {
     const open = () => window.open(g.link, "_blank", "noopener");
     const isAppStore = (g.link || "").includes("apps.apple.com");
@@ -510,7 +564,9 @@ function ProjectCard({ g, ui }) {
             <div className="card-media">
                 <span className="card-tag">{g.accentTag}</span>
                 {g.badge && <span className="card-badge">🏆 {g.badge}</span>}
-                <img src={g.image} alt={g.title + " - game art"} loading="lazy" />
+                {g.screens
+                    ? <PhoneStage g={g} />
+                    : <img src={g.image} alt={g.title + " - game art"} loading="lazy" />}
             </div>
             <div className="card-body">
                 <div className="card-meta-top">

@@ -425,14 +425,124 @@
 }
 .card:not(.featured) .card-media { aspect-ratio: 16 / 10; }
 .card.featured .card-media { flex: 1.15; min-height: 420px; }
-.card-media img {
+/* direct-child only: the phone-stage images (nested) keep their own motion */
+.card-media > img {
   width: 100%; height: 100%; object-fit: cover;
   transition: transform 0.6s cubic-bezier(.2,.7,.2,1);
 }
-.card:hover .card-media img { transform: scale(1.05); }
+.card:hover .card-media > img { transform: scale(1.05); }
 .card-media::after {
   content: ""; position: absolute; inset: 0;
   background: linear-gradient(to top, color-mix(in srgb, var(--card) 92%, transparent) 0%, transparent 48%);
+}
+
+/* ---- phone-fan stage (featured card with `screens`) ----
+   Sized from the stage box via container units: --pw is the centre phone width.
+   Overlays (.card-tag / .card-badge, z-index 3) sit above the stage (z-index 1). */
+.phone-stage {
+  position: absolute; inset: 0; z-index: 1;
+  overflow: hidden;
+  container-type: size;
+  --pw: 190px;           /* fallback without container units */
+  --icon: 64px;
+  background:
+    radial-gradient(ellipse 62% 58% at 50% 54%, var(--accent-soft), transparent 72%),
+    linear-gradient(160deg, var(--card-2) 0%, var(--card) 100%);
+}
+@supports (width: 1cqw) {
+  .phone-stage {
+    --pw: min(33cqw, 38cqh);
+    --icon: clamp(46px, 12.5cqw, 72px);
+  }
+}
+/* very subtle diamond cage, faded out toward the edges */
+.phone-stage::before {
+  content: ""; position: absolute; inset: 0;
+  --cage: color-mix(in srgb, var(--text) 5.5%, transparent);
+  background-image:
+    repeating-linear-gradient(45deg, transparent 0 26px, var(--cage) 26px 27px),
+    repeating-linear-gradient(-45deg, transparent 0 26px, var(--cage) 26px 27px);
+  -webkit-mask-image: radial-gradient(ellipse 75% 75% at 50% 52%, #000 15%, transparent 78%);
+  mask-image: radial-gradient(ellipse 75% 75% at 50% 52%, #000 15%, transparent 78%);
+  pointer-events: none;
+}
+.phone-fan {
+  position: absolute; inset: 0;
+  display: grid; place-items: center;
+}
+.phone {
+  grid-area: 1 / 1;
+  width: var(--pw);
+  padding: calc(var(--pw) * 0.028);
+  border-radius: calc(var(--pw) * 0.15);
+  background: #0a0c12;
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--text) 16%, transparent),
+    0 20px 36px -14px rgba(0,0,0,0.55),
+    0 4px 10px -2px rgba(0,0,0,0.25);
+  transition: transform 0.5s cubic-bezier(.2,.7,.2,1);
+}
+[data-theme="light"] .phone {
+  box-shadow:
+    0 0 0 1px rgba(15,18,30,0.5),
+    0 20px 34px -14px rgba(20,24,40,0.45),
+    0 4px 10px -2px rgba(20,24,40,0.2);
+}
+.phone-screen {
+  position: relative; overflow: hidden;
+  aspect-ratio: 1290 / 2796;   /* the screenshots' own ratio, no cropping */
+  border-radius: calc(var(--pw) * 0.122);
+  background: #000;
+}
+.phone-screen img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.phone-left   { z-index: 1; transform: translate(-58%, 3%) rotate(-11deg) scale(0.82); }
+.phone-right  { z-index: 1; transform: translate(58%, 3%) rotate(11deg) scale(0.82); }
+.phone-center { z-index: 2; transform: translateY(0) scale(1); }
+
+/* Centre phone crossfade. Screen 0 is the static base; the others start hidden and are
+   animated by keyframes generated from the screen count (see PhoneStage in sections.jsx).
+   Loop length = count * --shot; screen i starts i * --shot into the loop. --n, --i and
+   --anim come from the markup. */
+.phone-shot:not(:first-child) {
+  opacity: 0;
+  animation-name: var(--anim, none);
+  animation-duration: calc(var(--n, 1) * var(--shot, 3s));
+  animation-delay: calc(var(--i, 0) * var(--shot, 3s));
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.stage-icon {
+  position: absolute; z-index: 4;
+  left: 18px; bottom: 18px;
+  width: var(--icon); height: var(--icon);
+  border-radius: 22.5%;
+  object-fit: cover;
+  transform: rotate(-9deg);
+  transform-origin: 30% 80%;
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--text) 14%, transparent),
+    0 14px 26px -8px rgba(0,0,0,0.5);
+  transition: transform 0.5s cubic-bezier(.2,.7,.2,1);
+}
+[data-theme="light"] .stage-icon {
+  box-shadow:
+    0 0 0 1px rgba(15,18,30,0.14),
+    0 14px 26px -8px rgba(20,24,40,0.4);
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .card:hover .phone-left   { transform: translate(-70%, 2%) rotate(-15deg) scale(0.82); }
+  .card:hover .phone-right  { transform: translate(70%, 2%) rotate(15deg) scale(0.82); }
+  .card:hover .phone-center { transform: translateY(-3.5%) scale(1.04); }
+  .card:hover .stage-icon   { transform: rotate(0deg) scale(1.1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .phone-shot:not(:first-child) { animation-name: none; opacity: 0; }
+  .phone, .stage-icon { transition: none; }
 }
 .card-tag {
   position: absolute; z-index: 3; top: 14px; left: 14px;
@@ -543,6 +653,7 @@
   .stats { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 640px) {
+  .stage-icon { left: 14px; bottom: 14px; }
   .wrap { padding: 0 20px; }
   .section { padding: 84px 0; }
   .hero { padding-top: 110px; min-height: auto; }

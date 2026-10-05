@@ -63,6 +63,17 @@ const GAMES = [
         status: "Released",
         badge: null,
         image: "assets/images/app_icon_ios.png",
+        // Featured card shows a phone-fan stage instead of the single image when `screens` is set.
+        screens: {
+            side: ["assets/images/ufc/ufc_talent.webp", "assets/images/ufc/ufc_league.webp"],
+            center: [
+                "assets/images/ufc/ufc_fight.webp",
+                "assets/images/ufc/ufc_gym.webp",
+                "assets/images/ufc/ufc_unlock.webp",
+                "assets/images/ufc/ufc_upgrade.webp",
+            ],
+        },
+        icon: "assets/images/ufc/ufc_icon.webp",
         link: "https://apps.apple.com/us/app/ufc-manager/id6781219228",
         code: null,
         trailer: null,
